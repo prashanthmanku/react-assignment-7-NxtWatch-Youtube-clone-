@@ -1,3 +1,5 @@
+import {withRouter, Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import MenuPopup from '../MenuPopup'
@@ -25,7 +27,7 @@ const darkLogoUrl =
 const lightLogoUrl =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-const Header = () => (
+const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDarkTheme, changeTheme} = value
@@ -33,13 +35,21 @@ const Header = () => (
         changeTheme()
       }
 
+      const onClickLogout = () => {
+        const {history} = props
+        Cookies.remove('jwt_token')
+        history.replace('./login')
+      }
+
       return (
         <NavbarContainer isDarkTheme={isDarkTheme}>
           <ContentContainer>
-            <LogoImg
-              src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-              alt="channel logo"
-            />
+            <Link to="/">
+              <LogoImg
+                src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
+                alt="channel logo"
+              />
+            </Link>
             <NavItemsContainer>
               <ThemeButton type="button" onClick={onChangeTheme}>
                 {isDarkTheme ? <LightIcon /> : <DarkIcon />}
@@ -53,10 +63,14 @@ const Header = () => (
                   alt="profile"
                 />
               </ProfileButton>
-              <MobileLogoutBtn type="button">
+              <MobileLogoutBtn type="button" onClick={onClickLogout}>
                 <LogoutIcon isDarkTheme={isDarkTheme} />
               </MobileLogoutBtn>
-              <DeskTopLogoutButton type="button" isDarkTheme={isDarkTheme}>
+              <DeskTopLogoutButton
+                type="button"
+                isDarkTheme={isDarkTheme}
+                onClick={onClickLogout}
+              >
                 Logout
               </DeskTopLogoutButton>
             </NavItemsContainer>
@@ -66,4 +80,4 @@ const Header = () => (
     }}
   </NxtWatchContext.Consumer>
 )
-export default Header
+export default withRouter(Header)

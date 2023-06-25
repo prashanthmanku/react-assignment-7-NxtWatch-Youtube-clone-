@@ -9,7 +9,14 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   height: 10vh;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#f9f9f9')};
-  background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
+  background-color: ${props =>
+    props.isDarkTheme ? '#212121' : '#ffffff'}; //  ffffff f9f9f9
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  //   right: 0;
+  //   bottom: 0;
 `
 
 export const ContentContainer = styled.div`

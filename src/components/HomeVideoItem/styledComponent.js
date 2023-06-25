@@ -1,0 +1,95 @@
+import styled from 'styled-components'
+
+export const ItemContainer = styled.li`
+  margin: 20px 0px;
+  width: 100%;
+  flex-grow: 1;
+  @media screen and (min-width: 576px) {
+    width: 250px;
+    margin: 20px 15px 20px 0px;
+  }
+`
+
+export const VideoLinkContainer = styled.div`
+  text-decoration: none;
+`
+
+export const ThumbnailImg = styled.img`
+  //   width: 250px;
+  width: 100%;
+  margin-bottom: 10px;
+  @media screen and (min-width: 576px) {
+    border-radius: 10px;
+  }
+`
+
+export const VideoDetailsContainer = styled.div`
+  @media screen and (max-width: 575px) {
+    width: 90%;
+    margin: auto;
+  }
+
+  display: flex;
+  align-items: flex-start;
+`
+
+export const ChannelLogo = styled.img`
+  width: 35px;
+  margin-right: 10px;
+`
+
+export const ContentContainer = styled.div``
+
+export const Title = styled.h1`
+  font-size: 14px;
+  margin: 0px;
+  //   color: #1e293b;
+  //   color: #ebebeb;
+  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 400;
+  font-weight: ${props => (props.isDarkTheme ? 400 : 500)};
+`
+
+export const MoreContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  //   color: #475569;
+  color: #64748b;
+  @media screen and (min-width: 567px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`
+
+export const ChannelName = styled.p`
+  margin-right: 12px;
+  font-size: 13px;
+
+  @media screen and (min-width: 567px) {
+    margin-bottom: 7px;
+  }
+`
+
+export const ViewsContainer = styled.ul`
+  padding: 0px;
+  display: flex;
+  flex-wrap:wrap:
+`
+
+export const Views = styled.li`
+  margin-right: 30px;
+  font-size: 13px;
+  list-style-type: none;
+  @media screen and (max-width: 575px) {
+    list-style-type: disc;
+    margin-left: 9px;
+  }
+`
+
+export const PublishedAt = styled.li`
+  font-size: 13px;
+  list-style-type: disc;
+`

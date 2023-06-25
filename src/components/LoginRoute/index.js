@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
@@ -46,8 +47,9 @@ class Login extends Component {
   }
 
   onSubmitSucces = jwtToken => {
-    // const {history} = this.props
+    const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {expires: 30})
+    history.replace('/login')
   }
 
   onSubmitFalure = errorMsg => {
@@ -75,6 +77,10 @@ class Login extends Component {
 
   render() {
     const {username, password, errorMsg, isCheckboxActive} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <NxtWatchContext.Consumer>
         {value => {

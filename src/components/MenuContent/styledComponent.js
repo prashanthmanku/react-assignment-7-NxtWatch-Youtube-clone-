@@ -6,7 +6,8 @@ export const MenuContentContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
+  //   background-color: ${props =>
+    props.isDarkTheme ? '#212121' : '#ffffff'};
 `
 
 export const MenuItemsContainer = styled.ul`

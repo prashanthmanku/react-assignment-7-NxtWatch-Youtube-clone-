@@ -7,6 +7,9 @@ import TrendingRoute from './components/TrendingRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideosRoute from './components/SavedVideosRoute'
 
+import VideoDetailedView from './components/VideoDetailedView'
+import ProtectedRoute from './components/ProtectedRoute'
+
 import NxtWatchContext from './context/NxtWatchContext'
 
 import './App.css'
@@ -31,11 +34,19 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={LoginRoute} />
-          <Route exact path="/" component={HomeRoute} />
-          <Route exact path="/trending" component={TrendingRoute} />
-          <Route exact path="/gaming" component={GamingRoute} />
-          <Route exact path="/saved-videos" component={SavedVideosRoute} />
-          {/* <Route exact path="/" component={Home} /> */}
+          <ProtectedRoute exact path="/" component={HomeRoute} />
+          <ProtectedRoute exact path="/trending" component={TrendingRoute} />
+          <ProtectedRoute exact path="/gaming" component={GamingRoute} />
+          <ProtectedRoute
+            exact
+            path="/saved-videos"
+            component={SavedVideosRoute}
+          />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoDetailedView}
+          />
         </Switch>
       </NxtWatchContext.Provider>
     )
