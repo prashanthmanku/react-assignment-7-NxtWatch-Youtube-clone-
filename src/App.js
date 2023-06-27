@@ -7,29 +7,97 @@ import TrendingRoute from './components/TrendingRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideosRoute from './components/SavedVideosRoute'
 
-import VideoDetailedView from './components/VideoDetailedView'
+import VideoDetailesRoute from './components/VideoDetailesRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import NxtWatchContext from './context/NxtWatchContext'
 
 import './App.css'
+// const NxtWatchContext = React.createContext({
+//   isdarktheme: false,
+//   likedVideos: [],
+//   disLikedVideos: [],
+//   savedVideos: [],
+//   changeTheme: () => {},
+
+// })
 
 class App extends Component {
   state = {
     isDarkTheme: false,
+    likedVideos: [],
+    disLikedVideos: [],
+    savedVideos: [],
   }
 
   onChangeTheme = () => {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
   }
 
+  addToLikedVideos = id => {
+    const {likedVideos, disLikedVideos} = this.state
+    if (disLikedVideos.includes(id)) {
+      this.setState({
+        disLikedVideos: likedVideos.filter(eachId => eachId !== id),
+      })
+    }
+    if (likedVideos.includes(id)) {
+      this.setState({
+        likedVideos: likedVideos.filter(eachId => eachId !== id),
+      })
+    } else {
+      this.setState({
+        likedVideos: [...likedVideos, id],
+      })
+    }
+  }
+
+  addToDislikedVideos = id => {
+    const {likedVideos, disLikedVideos} = this.state
+    if (likedVideos.includes(id)) {
+      this.setState({
+        likedVideos: disLikedVideos.filter(eachId => eachId !== id),
+      })
+    }
+    if (disLikedVideos.includes(id)) {
+      this.setState({
+        disLikedVideos: disLikedVideos.filter(eachId => eachId !== id),
+      })
+    } else {
+      this.setState({disLikedVideos: [...disLikedVideos, id]})
+    }
+  }
+
+  addToSavedVideos = videoDetails => {
+    const {savedVideos} = this.state
+    let savedVidesIds = []
+    if (savedVideos.length !== 0) {
+      savedVidesIds = savedVideos.map(each => each.id)
+    }
+    if (savedVidesIds.includes(videoDetails.id)) {
+      this.setState({
+        savedVideos: savedVideos.filter(each => each.id !== videoDetails.id),
+      })
+    } else {
+      this.setState({
+        savedVideos: [...savedVideos, videoDetails],
+      })
+    }
+  }
+
   render() {
-    const {isDarkTheme} = this.state
+    const {isDarkTheme, likedVideos, disLikedVideos, savedVideos} = this.state
     return (
       <NxtWatchContext.Provider
         value={{
           isDarkTheme,
+          likedVideos,
+          savedVideos,
+          disLikedVideos,
           changeTheme: this.onChangeTheme,
+          addToLikedVideos: this.addToLikedVideos,
+          addToDislikedVideos: this.addToDislikedVideos,
+          addToSavedVideos: this.addToSavedVideos,
         }}
       >
         <Switch>
@@ -45,7 +113,7 @@ class App extends Component {
           <ProtectedRoute
             exact
             path="/videos/:id"
-            component={VideoDetailedView}
+            component={VideoDetailesRoute}
           />
         </Switch>
       </NxtWatchContext.Provider>

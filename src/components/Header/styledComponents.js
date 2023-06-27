@@ -15,6 +15,7 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 100;
   //   right: 0;
   //   bottom: 0;
 `

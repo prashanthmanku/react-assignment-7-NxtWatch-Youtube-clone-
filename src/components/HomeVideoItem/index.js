@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import {formatDistanceToNow} from 'date-fns'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
 
@@ -28,10 +29,15 @@ const HomeVideoItem = props => {
     title,
     viewCount,
   } = videoDetails
+
   return (
     <NxtWatchContext.Consumer>
       {value => {
         const {isDarkTheme} = value
+        let time = formatDistanceToNow(new Date(publishedAt))
+        time = time.split(' ')
+        time = time.slice(1)
+        time = time.join(' ')
 
         return (
           <ItemContainer>
@@ -45,7 +51,7 @@ const HomeVideoItem = props => {
                     <ChannelName>{channelName}</ChannelName>
                     <ViewsContainer>
                       <Views>{viewCount} views</Views>
-                      <PublishedAt>today</PublishedAt>
+                      <PublishedAt>{time} ago</PublishedAt>
                     </ViewsContainer>
                   </MoreContainer>
                 </ContentContainer>
