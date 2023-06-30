@@ -98,13 +98,16 @@ export const SearchBarContainer = styled.div`
 export const Input = styled.input`
   width: 80%;
   background-color: transparent;
-  outline: none;
+  //   outline: none;
   border: none;
   border-right: 1px solid #909090;
   padding: 8px 16px;
 
   color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
   font-size: 16px;
+  &:focus {
+    outline-color: blue;
+  }
 `
 
 export const SearchButton = styled.button`

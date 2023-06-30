@@ -42,7 +42,7 @@ export const Icon = styled.div`
   width: 30px;
 `
 
-export const GameHeading = styled.div`
+export const GameHeading = styled.h1`
   color: #0f0f0f;
   font-size: 19px;
   font-weight: 600;

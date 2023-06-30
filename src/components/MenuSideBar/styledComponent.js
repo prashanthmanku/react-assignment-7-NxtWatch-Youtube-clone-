@@ -27,7 +27,7 @@ export const IconsContainer = styled.div`
   align-items: center;
 `
 
-export const Heading = styled.h1`
+export const Heading = styled.p`
   font-size: 17px;
   font-weight: bold;
 

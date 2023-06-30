@@ -7,6 +7,7 @@ export const SavedRouteBgCard = styled.div`
 export const SavedVideosBgCard = styled.div`
   min-height: 90vh;
   background-color: ${props => (props.isDarkTheme ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#f9f9f9')};
   @media screen and (min-width: 768px) {
     margin-left: 250px;
   }
@@ -41,7 +42,7 @@ export const Icon = styled.div`
   width: 30px;
 `
 
-export const SavedHeading = styled.div`
+export const SavedHeading = styled.h1`
   color: #0f0f0f;
   font-size: 19px;
   font-weight: 600;

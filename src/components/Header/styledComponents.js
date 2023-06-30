@@ -106,7 +106,7 @@ export const PopupContendCard = styled.div`
   }
 `
 
-export const PopupHeading = styled.h1`
+export const PopupHeading = styled.p`
   color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
   font-size: 17px;
   font-weight: 500;

@@ -27,7 +27,7 @@ export const ThumbnailImg = styled.img`
   margin-bottom: 10px;
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   font-size: 14px;
   margin: 0px;
 

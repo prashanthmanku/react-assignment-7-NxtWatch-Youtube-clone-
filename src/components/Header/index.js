@@ -33,21 +33,25 @@ const lightLogoUrl =
 const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDarkTheme, changeTheme} = value
+      const {isDarkTheme, changeTheme, changeRouteKey} = value
 
       const onChangeTheme = () => {
         changeTheme()
       }
 
+      const onChangeRouteKey = () => {
+        changeRouteKey()
+      }
+
       const onClickLogout = () => {
         const {history} = props
         Cookies.remove('jwt_token')
-        history.replace('./login')
+        history.replace('/login')
       }
       const renderLogutPopupContent = close => (
         <PopupContendCard data-dark={isDarkTheme}>
           <PopupHeading data-dark={isDarkTheme}>
-            Are you sure want to logout?
+            Are you sure, you want to logout
           </PopupHeading>
           <PopupButtonCard>
             <PopupButton type="button" onClick={() => close()}>
@@ -73,7 +77,8 @@ const Header = props => (
             <Link to="/">
               <LogoImg
                 src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-                alt="channel logo"
+                alt="website logo"
+                onClick={onChangeRouteKey}
               />
             </Link>
             <NavItemsContainer>

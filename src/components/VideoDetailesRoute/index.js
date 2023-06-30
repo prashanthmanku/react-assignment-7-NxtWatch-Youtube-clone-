@@ -199,7 +199,10 @@ class VideoDetailesRoute extends Component {
                     </IconsContainer>
                   </MoreContainer>
                   <ChannelCard>
-                    <ChannelLogo src={channelProfileImageUrl} alt="url" />
+                    <ChannelLogo
+                      src={channelProfileImageUrl}
+                      alt="channel logo"
+                    />
                     <ChannelContentContainer>
                       <ChannelName isDarkTheme={isDarkTheme}>
                         {channelName}

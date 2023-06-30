@@ -1,5 +1,5 @@
-import {Component} from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Component, useEffect} from 'react'
+import {Switch, Route, Redirect, useHistory} from 'react-router-dom'
 
 import LoginRoute from './components/LoginRoute'
 import HomeRoute from './components/HomeRoute'
@@ -22,6 +22,7 @@ class App extends Component {
     likedVideos: [],
     disLikedVideos: [],
     savedVideos: [],
+    routeKey: 0,
   }
 
   onChangeTheme = () => {
@@ -79,8 +80,35 @@ class App extends Component {
     }
   }
 
+  changeRouteKey = () => {
+    this.setState(prevState => ({routeKey: prevState.routeKey + 1}))
+  }
+
   render() {
-    const {isDarkTheme, likedVideos, disLikedVideos, savedVideos} = this.state
+    const {
+      isDarkTheme,
+      likedVideos,
+      disLikedVideos,
+      savedVideos,
+      routeKey,
+    } = this.state
+
+    const ScrollToTop = () => {
+      const history = useHistory()
+
+      useEffect(() => {
+        const unlisten = history.listen(() => {
+          window.scrollTo(0, 0)
+        })
+
+        return () => {
+          unlisten()
+        }
+      }, [history])
+
+      return null
+    }
+
     return (
       <NxtWatchContext.Provider
         value={{
@@ -88,21 +116,35 @@ class App extends Component {
           likedVideos,
           savedVideos,
           disLikedVideos,
+          routeKey,
+          changeRouteKey: this.changeRouteKey,
           changeTheme: this.onChangeTheme,
           addToLikedVideos: this.addToLikedVideos,
           addToDislikedVideos: this.addToDislikedVideos,
           addToSavedVideos: this.addToSavedVideos,
         }}
       >
+        <ScrollToTop />
         <Switch>
-          <Route exact path="/login" component={LoginRoute} />
-          <ProtectedRoute exact path="/" component={HomeRoute} />
-          <ProtectedRoute exact path="/trending" component={TrendingRoute} />
-          <ProtectedRoute exact path="/gaming" component={GamingRoute} />
+          <Route exact path="/login" component={LoginRoute} key={routeKey} />
+          <ProtectedRoute exact path="/" component={HomeRoute} key={routeKey} />
+          <ProtectedRoute
+            exact
+            path="/trending"
+            component={TrendingRoute}
+            key={routeKey}
+          />
+          <ProtectedRoute
+            exact
+            path="/gaming"
+            component={GamingRoute}
+            key={routeKey}
+          />
           <ProtectedRoute
             exact
             path="/saved-videos"
             component={SavedVideosRoute}
+            key={routeKey}
           />
           <ProtectedRoute
             exact

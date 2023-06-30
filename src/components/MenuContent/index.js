@@ -24,7 +24,10 @@ const MenuContent = props => {
   return (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme} = value
+        const {isDarkTheme, changeRouteKey} = value
+        const onClickChangeRouteKey = () => {
+          changeRouteKey()
+        }
         return (
           <MenuContentContainer data-dark={isDarkTheme}>
             <MenuItemsContainer>
@@ -34,6 +37,7 @@ const MenuContent = props => {
                   to="/"
                   data-dark={isDarkTheme}
                   data-selected={path === '/'}
+                  onClick={onClickChangeRouteKey}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -56,6 +60,7 @@ const MenuContent = props => {
                   to="/trending"
                   data-dark={isDarkTheme}
                   data-selected={path === '/trending'}
+                  onClick={onClickChangeRouteKey}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -79,6 +84,7 @@ const MenuContent = props => {
                   to="/gaming"
                   data-dark={isDarkTheme}
                   data-selected={path === '/gaming'}
+                  onClick={onClickChangeRouteKey}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -102,6 +108,7 @@ const MenuContent = props => {
                   to="/saved-videos"
                   data-dark={isDarkTheme}
                   data-selected={path === '/saved-videos'}
+                  onClick={onClickChangeRouteKey}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -114,7 +121,7 @@ const MenuContent = props => {
                       data-selected={path === '/saved-videos'}
                       data-dark={isDarkTheme}
                     >
-                      SavedVideos
+                      Saved Videos
                     </MenuName>
                   </MenuDetailsContainer>
                 </MenuItemContainer>

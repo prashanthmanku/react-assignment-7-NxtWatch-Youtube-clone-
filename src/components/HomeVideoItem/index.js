@@ -56,7 +56,7 @@ const HomeVideoItem = props => {
               <VideoDetailsContainer value={path === '/'}>
                 <ChannelLogo
                   src={channelProfileImageUrl}
-                  alt="channel-logo"
+                  alt="channel logo"
                   value={path === '/'}
                 />
                 <ContentContainer>

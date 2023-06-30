@@ -51,7 +51,7 @@ export const ContentContainer = styled.div`
   }
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   //   color: #1e293b;
   //   color: #ebebeb;
   color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};

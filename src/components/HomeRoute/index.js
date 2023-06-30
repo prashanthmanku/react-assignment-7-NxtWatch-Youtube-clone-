@@ -190,18 +190,22 @@ class Home extends Component {
           return (
             <>
               <Header />
-              <HomeBgContainer data-testid="home">
+              <HomeBgContainer>
                 <MenuSideBar />
                 <HomeMainContainer>
                   {isBannerVisible && (
-                    <BannerContainer data-testid="close">
-                      <CloseButton type="button" onClick={this.onCloseBanner}>
+                    <BannerContainer>
+                      <CloseButton
+                        type="button"
+                        onClick={this.onCloseBanner}
+                        data-testid="close"
+                      >
                         <CloseIcon as={IoMdClose} />
                       </CloseButton>
 
                       <BannerLogo
                         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="channel logo"
+                        alt="nxt watch logo"
                       />
 
                       <BannerText>
@@ -211,7 +215,10 @@ class Home extends Component {
                     </BannerContainer>
                   )}
 
-                  <HomeContentContainer isDarkTheme={isDarkTheme}>
+                  <HomeContentContainer
+                    isDarkTheme={isDarkTheme}
+                    data-testid="home"
+                  >
                     <SearchBarWidthContainer>
                       <SearchBarContainer>
                         <Input

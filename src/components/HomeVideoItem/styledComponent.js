@@ -59,7 +59,7 @@ export const ChannelLogo = styled.img`
 
 export const ContentContainer = styled.div``
 
-export const Title = styled.h1`
+export const Title = styled.p`
   font-size: 14px;
   margin: 0px;
   //   color: #1e293b;

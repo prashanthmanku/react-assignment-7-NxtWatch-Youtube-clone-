@@ -22,7 +22,7 @@ const darkLogoUrl =
 const lightLogoUrl =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-class Login extends Component {
+class LoginRoute extends Component {
   state = {
     username: '',
     password: '',
@@ -49,7 +49,7 @@ class Login extends Component {
   onSubmitSucces = jwtToken => {
     const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {expires: 30})
-    history.replace('/login')
+    history.replace('/')
   }
 
   onSubmitFalure = errorMsg => {
@@ -91,7 +91,7 @@ class Login extends Component {
               <WidthContainer isDarkTheme={isDarkTheme}>
                 <Img
                   src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-                  alt="channel logo"
+                  alt="website logo"
                 />
                 <Form onSubmit={this.onSubmitForm}>
                   <InputContainer>
@@ -143,4 +143,4 @@ class Login extends Component {
     )
   }
 }
-export default Login
+export default LoginRoute

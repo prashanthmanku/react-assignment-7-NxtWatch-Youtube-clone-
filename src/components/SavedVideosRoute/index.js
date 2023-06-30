@@ -70,7 +70,10 @@ class SavedVideosRoute extends Component {
             return (
               <SavedRouteBgCard>
                 <MenuSideBar />
-                <SavedVideosBgCard isDarkTheme={isDarkTheme}>
+                <SavedVideosBgCard
+                  isDarkTheme={isDarkTheme}
+                  data-testid="savedVideos"
+                >
                   {this.renderSavedRouteView(isDarkTheme, savedVideos)}
                 </SavedVideosBgCard>
               </SavedRouteBgCard>
