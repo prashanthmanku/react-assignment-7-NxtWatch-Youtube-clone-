@@ -54,8 +54,12 @@ export const ContentContainer = styled.div`
 export const Title = styled.p`
   //   color: #1e293b;
   //   color: #ebebeb;
+  font-size: 14px;
   color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
-  font-size: 18px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
   line-height: 26px;
 
   font-weight: ${props => (props.isDarkTheme ? 400 : 500)};

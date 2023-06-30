@@ -53,7 +53,7 @@ export const Label = styled.label`
 `
 
 export const Input = styled.input`
-  height: 35px;
+  height: 40px;
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid ${props => (props.isDarkTheme ? '#475569' : '#cbd5e1')};
