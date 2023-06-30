@@ -55,7 +55,7 @@ export const Title = styled.p`
   //   color: #1e293b;
   //   color: #ebebeb;
   color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
-  font-size: 16px;
+  font-size: 18px;
   line-height: 26px;
 
   font-weight: ${props => (props.isDarkTheme ? 400 : 500)};

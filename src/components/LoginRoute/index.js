@@ -15,6 +15,7 @@ import {
   LoginButton,
   CheckBoxContainer,
   ErrorMessage,
+  UserDetails,
 } from './styledComponents'
 
 const darkLogoUrl =
@@ -59,7 +60,13 @@ class LoginRoute extends Component {
   onSubmitForm = async e => {
     e.preventDefault()
     const {username, password} = this.state
-    const userDetails = {username, password}
+    let userDetails = {}
+    if (username === 'prashanth' && password === 'prash@2023') {
+      userDetails = {username: 'rahul', password: 'rahul@2021'}
+    } else {
+      userDetails = {username, password}
+    }
+
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -67,7 +74,6 @@ class LoginRoute extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(response, data)
     if (response.ok === true) {
       this.onSubmitSucces(data.jwt_token)
     } else {
@@ -87,56 +93,68 @@ class LoginRoute extends Component {
           const {isDarkTheme} = value
 
           return (
-            <BgContainer isDarkTheme={isDarkTheme}>
-              <WidthContainer isDarkTheme={isDarkTheme}>
-                <Img
-                  src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-                  alt="website logo"
-                />
-                <Form onSubmit={this.onSubmitForm}>
-                  <InputContainer>
-                    <Label htmlFor="userName" isDarkTheme={isDarkTheme}>
-                      USERNAME
-                    </Label>
-                    <Input
-                      type="text"
-                      id="userName"
-                      placeholder="Username"
-                      isDarkTheme={isDarkTheme}
-                      value={username}
-                      onChange={this.onChangeUserName}
-                    />
-                  </InputContainer>
-                  <InputContainer>
-                    <Label htmlFor="passWord" isDarkTheme={isDarkTheme}>
-                      PASSWORD
-                    </Label>
-                    <Input
-                      type={isCheckboxActive ? 'text' : 'password'}
-                      id="passWord"
-                      placeholder="Pssword"
-                      isDarkTheme={isDarkTheme}
-                      value={password}
-                      onChange={this.onChangePassword}
-                    />
-                  </InputContainer>
-                  <CheckBoxContainer>
-                    <Checkbox
-                      type="checkbox"
-                      id="checkbox"
-                      onClick={this.onClickCheckbox}
-                    />
-                    <CheckBoxLabel htmlFor="checkbox" isDarkTheme={isDarkTheme}>
-                      Show Password
-                    </CheckBoxLabel>
-                  </CheckBoxContainer>
-                  <LoginButton type="submit">Login</LoginButton>
-                </Form>
-                {errorMsg !== '' ? (
-                  <ErrorMessage>*{errorMsg}</ErrorMessage>
-                ) : null}
-              </WidthContainer>
-            </BgContainer>
+            <>
+              <BgContainer isDarkTheme={isDarkTheme}>
+                <WidthContainer isDarkTheme={isDarkTheme}>
+                  <Img
+                    src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
+                    alt="website logo"
+                  />
+                  <Form onSubmit={this.onSubmitForm}>
+                    <InputContainer>
+                      <Label htmlFor="userName" isDarkTheme={isDarkTheme}>
+                        USERNAME
+                      </Label>
+                      <Input
+                        type="text"
+                        id="userName"
+                        placeholder="Username"
+                        isDarkTheme={isDarkTheme}
+                        value={username}
+                        onChange={this.onChangeUserName}
+                      />
+                    </InputContainer>
+                    <InputContainer>
+                      <Label htmlFor="passWord" isDarkTheme={isDarkTheme}>
+                        PASSWORD
+                      </Label>
+                      <Input
+                        type={isCheckboxActive ? 'text' : 'password'}
+                        id="passWord"
+                        placeholder="Pssword"
+                        isDarkTheme={isDarkTheme}
+                        value={password}
+                        onChange={this.onChangePassword}
+                      />
+                    </InputContainer>
+                    <CheckBoxContainer>
+                      <Checkbox
+                        type="checkbox"
+                        id="checkbox"
+                        onClick={this.onClickCheckbox}
+                      />
+                      <CheckBoxLabel
+                        htmlFor="checkbox"
+                        isDarkTheme={isDarkTheme}
+                      >
+                        Show Password
+                      </CheckBoxLabel>
+                    </CheckBoxContainer>
+                    <LoginButton type="submit">Login</LoginButton>
+                  </Form>
+                  {errorMsg !== '' ? (
+                    <ErrorMessage>*{errorMsg}</ErrorMessage>
+                  ) : null}
+                </WidthContainer>
+                <UserDetails>
+                  use these user details :-
+                  <br />
+                  username:- prashanth
+                  <br />
+                  password:- prash@2023
+                </UserDetails>
+              </BgContainer>
+            </>
           )
         }}
       </NxtWatchContext.Consumer>

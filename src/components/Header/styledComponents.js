@@ -50,7 +50,9 @@ export const NavButton = styled.button`
   cursor: pointer;
 `
 
-export const ThemeButton = styled(NavButton)``
+export const ThemeButton = styled(NavButton)`
+  background-color: transparent;
+`
 
 export const DarkIcon = styled(FaMoon)`
   height: 20px;
@@ -84,8 +86,8 @@ export const ProfileButton = styled(NavButton)`
 `
 
 export const ProfileImg = styled.img`
-  height: 20px;
-  width: 20px;
+  height: 23px;
+  width: 23px;
 `
 export const StyledPopUp = styled(Popup)`
   &-popup-content {

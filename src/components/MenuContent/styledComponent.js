@@ -53,8 +53,8 @@ export const MenuIcon = styled.img`
     }
     return props['data-selected'] ? '  #ff0000' : '#475569'
   }};
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   @media screen and (max-width: 767px) {
     &.trending {
       margin-left: 18px;
@@ -70,7 +70,7 @@ export const MenuIcon = styled.img`
 
 export const MenuName = styled.p`
   margin-left: 17px;
-  font-size: 14px;
+  font-size: 15px;
   color: ${props => {
     if (props['data-dark'] === true) {
       return props['data-selected'] ? '  #ffffff' : ' #cbd5e1'

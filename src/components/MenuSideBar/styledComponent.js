@@ -46,6 +46,11 @@ export const SocialMediaButton = styled.a`
 export const Icon = styled.img`
   width: 30px;
   height: 30px;
+
+  color: ${props => (props.isDarkTheme ? '#ebebeb' : 'black')};
+  &.insta {
+    color: #e4405f;
+  }
 `
 
 export const Description = styled.p`

@@ -4,6 +4,7 @@ export const BgContainer = styled.div`
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#f9f9f9')};
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `
@@ -57,8 +58,9 @@ export const Input = styled.input`
   border-radius: 4px;
   border: 1px solid ${props => (props.isDarkTheme ? '#475569' : '#cbd5e1')};
   outline: none;
-  color: ${props => (props.isDarkTheme ? '#cbd5e1' : '#313131')};
-  font-size: 12px;
+  color: ${props => (props.isDarkTheme ? '#cbd5e1' : '#0f0f0f')};
+  font-weight: 500;
+  font-size: 15px;
   background-color: transparent;
 `
 
@@ -74,9 +76,9 @@ export const Checkbox = styled.input`
 `
 
 export const CheckBoxLabel = styled.label`
-  margin: 0px 0px 3px 4px;
+  margin: 0px 0px 0px 4px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   color: ${props => (props.isDarkTheme ? '#e2e8f0' : '#181818')};
 `
 
@@ -98,4 +100,9 @@ export const ErrorMessage = styled.p`
   color: #ff0000;
   font-size: 12px;
   font-weight: 400;
+`
+
+export const UserDetails = styled.p`
+  line-height: 23px;
+  font-size: 14px;
 `

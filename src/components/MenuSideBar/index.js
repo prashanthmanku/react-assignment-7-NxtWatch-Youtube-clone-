@@ -1,3 +1,4 @@
+import {AiOutlineGithub, AiOutlineInstagram} from 'react-icons/ai'
 import MenuContent from '../MenuContent'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
@@ -28,31 +29,25 @@ const MenuSideBar = () => (
                 rel="noreferrer"
               >
                 <Icon
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                  alt="facebook logo"
-                />
-              </SocialMediaButton>
-
-              <SocialMediaButton
-                href="https://www.linkedin.com/in/prashanth-manku97/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                  alt="twitter logo"
-                />
-              </SocialMediaButton>
-
-              <SocialMediaButton
-                href="https://www.linkedin.com/in/prashanth-manku97/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
                   alt="linked in logo"
                 />
+              </SocialMediaButton>
+
+              <SocialMediaButton
+                href="https://github.com/prashanthmanku"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon as={AiOutlineGithub} isDarkTheme={isDarkTheme} />
+              </SocialMediaButton>
+
+              <SocialMediaButton
+                href="https://www.instagram.com/prashanth0823/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon as={AiOutlineInstagram} className="insta" />
               </SocialMediaButton>
             </IconsContainer>
             <Description>
