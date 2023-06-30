@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import Cookies from 'js-cookie'
 import {IoMdClose} from 'react-icons/io'
 import {AiOutlineSearch} from 'react-icons/ai'
@@ -91,7 +92,7 @@ class Home extends Component {
         title: each.title,
         viewCount: each.view_count,
       }))
-      console.log(UpdatedData)
+
       this.setState({
         videosList: UpdatedData,
         apiStatus: apiStatusConstants.success,
@@ -189,11 +190,11 @@ class Home extends Component {
           return (
             <>
               <Header />
-              <HomeBgContainer>
+              <HomeBgContainer data-testid="home">
                 <MenuSideBar />
                 <HomeMainContainer>
                   {isBannerVisible && (
-                    <BannerContainer>
+                    <BannerContainer data-testid="close">
                       <CloseButton type="button" onClick={this.onCloseBanner}>
                         <CloseIcon as={IoMdClose} />
                       </CloseButton>
@@ -225,6 +226,7 @@ class Home extends Component {
                           type="button"
                           isDarkTheme={isDarkTheme}
                           onClick={this.onClickSeachBtn}
+                          data-testid="searchButton"
                         >
                           <SearchIcon as={AiOutlineSearch} />
                         </SearchButton>

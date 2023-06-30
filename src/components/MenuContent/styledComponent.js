@@ -35,8 +35,8 @@ export const MenuItemContainer = styled.div`
   width: 100%;
 
   background-color: ${props => {
-    if (props.isselected === true) {
-      return props.isDarkTheme ? ' #383838' : '#f1f5f9'
+    if (props['data-selected'] === true) {
+      return props['data-dark'] ? ' #383838' : '#f1f5f9'
     }
     return null
   }};
@@ -48,10 +48,10 @@ export const MenuItemContainer = styled.div`
 
 export const MenuIcon = styled.img`
   color: ${props => {
-    if (props.isDarkTheme === true) {
-      return props.isselected ? '#ff0000' : ' #cbd5e1'
+    if (props['data-dark'] === true) {
+      return props['data-selected'] ? '#ff0000' : ' #cbd5e1'
     }
-    return props.isselected ? '  #ff0000' : '#475569'
+    return props['data-selected'] ? '  #ff0000' : '#475569'
   }};
   width: 16px;
   height: 16px;
@@ -72,10 +72,10 @@ export const MenuName = styled.p`
   margin-left: 17px;
   font-size: 14px;
   color: ${props => {
-    if (props.isDarkTheme === true) {
-      return props.isselected ? '  #ffffff' : ' #cbd5e1'
+    if (props['data-dark'] === true) {
+      return props['data-selected'] ? '  #ffffff' : ' #cbd5e1'
     }
-    return props.isselected ? ' #000000' : '#475569'
+    return props['data-selected'] ? ' #000000' : '#475569'
   }};
-  font-weight: ${props => (props.isselected ? 600 : 500)};
+  font-weight: ${props => (props['data-selected'] ? 600 : 500)};
 `

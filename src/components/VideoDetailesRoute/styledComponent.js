@@ -14,6 +14,7 @@ export const VideoDetailsCard = styled.div`
     margin-left: 250px;
   }
   background-color: ${props => (props.isDarkTheme ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.isDarkTheme ? '#0f0f0f ' : '#f9f9f9')};
 `
 
 export const VideoDetailsWidthCard1 = styled.div`
@@ -60,7 +61,13 @@ export const Title = styled.h1`
   font-weight: ${props => (props.isDarkTheme ? 400 : 500)};
 `
 
-export const MoreContainer = styled.div``
+export const MoreContainer = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
 
 export const ViewsContainer = styled.ul`
   display: flex;
@@ -97,9 +104,13 @@ export const IconButton = styled.button`
   outline: none;
   border: none;
   margin-right: 25px;
+
   margin-bottom: 15px;
-  //   color: #64748b;
-  color: ${props => (props.done === true ? '#3b82f6' : '#64748b')};
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+  }
+
+  color: ${props => (props.done === true ? '#2563eb' : '#64748b')};
 `
 
 export const Icon = styled.div`
@@ -168,4 +179,13 @@ export const ChannelDescription = styled.p`
       display: flex;
     }
   }
+`
+
+export const FalureWidthCard = styled.div`
+  width: 100%;
+  min-height: 70vh;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

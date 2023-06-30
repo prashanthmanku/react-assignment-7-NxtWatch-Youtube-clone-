@@ -5,6 +5,7 @@ export const FailureViewContainer = styled.div`
   text-align: center;
   margin-top: 20px;
   padding: 20px;
+  margin: auto;
 `
 
 export const FailureImg = styled.img`

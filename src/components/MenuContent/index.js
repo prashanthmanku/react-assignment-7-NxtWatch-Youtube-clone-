@@ -26,24 +26,24 @@ const MenuContent = props => {
       {value => {
         const {isDarkTheme} = value
         return (
-          <MenuContentContainer isDarkTheme={isDarkTheme}>
+          <MenuContentContainer data-dark={isDarkTheme}>
             <MenuItemsContainer>
               <Li>
                 <MenuItemContainer
                   as={Link}
                   to="/"
-                  isDarkTheme={isDarkTheme}
-                  isselected={path === '/'}
+                  data-dark={isDarkTheme}
+                  data-selected={path === '/'}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
                       as={AiFillHome}
-                      isselected={path === '/'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/'}
+                      data-dark={isDarkTheme}
                     />
                     <MenuName
-                      isselected={path === '/'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/'}
+                      data-dark={isDarkTheme}
                     >
                       Home
                     </MenuName>
@@ -54,19 +54,19 @@ const MenuContent = props => {
                 <MenuItemContainer
                   as={Link}
                   to="/trending"
-                  isDarkTheme={isDarkTheme}
-                  isselected={path === '/trending'}
+                  data-dark={isDarkTheme}
+                  data-selected={path === '/trending'}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
                       as={HiFire}
-                      isselected={path === '/trending'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/trending'}
+                      data-dark={isDarkTheme}
                       className="trending"
                     />
                     <MenuName
-                      isselected={path === '/trending'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/trending'}
+                      data-dark={isDarkTheme}
                     >
                       Trending
                     </MenuName>
@@ -77,19 +77,19 @@ const MenuContent = props => {
                 <MenuItemContainer
                   as={Link}
                   to="/gaming"
-                  isDarkTheme={isDarkTheme}
-                  isselected={path === '/gaming'}
+                  data-dark={isDarkTheme}
+                  data-selected={path === '/gaming'}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
                       as={SiYoutubegaming}
-                      isselected={path === '/gaming'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/gaming'}
+                      data-dark={isDarkTheme}
                       className="gaming"
                     />
                     <MenuName
-                      isselected={path === '/gaming'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/gaming'}
+                      data-dark={isDarkTheme}
                     >
                       Gaming
                     </MenuName>
@@ -100,19 +100,19 @@ const MenuContent = props => {
                 <MenuItemContainer
                   as={Link}
                   to="/saved-videos"
-                  isDarkTheme={isDarkTheme}
-                  isselected={path === '/saved-videos'}
+                  data-dark={isDarkTheme}
+                  data-selected={path === '/saved-videos'}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
                       as={MdPlaylistAdd}
-                      isselected={path === '/saved-videos'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/saved-videos'}
+                      data-dark={isDarkTheme}
                       className="saved-videos"
                     />
                     <MenuName
-                      isselected={path === '/saved-videos'}
-                      isDarkTheme={isDarkTheme}
+                      data-selected={path === '/saved-videos'}
+                      data-dark={isDarkTheme}
                     >
                       SavedVideos
                     </MenuName>

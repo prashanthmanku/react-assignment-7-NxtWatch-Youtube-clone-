@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {FaMoon} from 'react-icons/fa'
 import {FiSun, FiLogOut} from 'react-icons/fi'
 import {BiMenu} from 'react-icons/bi'
+import Popup from 'reactjs-popup'
 
 export const NavbarContainer = styled.nav`
   display: flex;
@@ -10,7 +11,7 @@ export const NavbarContainer = styled.nav`
   height: 10vh;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#f9f9f9')};
   background-color: ${props =>
-    props.isDarkTheme ? '#212121' : '#ffffff'}; //  ffffff f9f9f9
+    props['data-dark'] ? '#212121' : '#ffffff'}; //  ffffff f9f9f9
   position: fixed;
   width: 100%;
   top: 0;
@@ -73,7 +74,7 @@ export const MenuIcon = styled(BiMenu)`
   height: 24px;
   width: 24px;
 
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
 `
 
 export const ProfileButton = styled(NavButton)`
@@ -86,6 +87,46 @@ export const ProfileImg = styled.img`
   height: 20px;
   width: 20px;
 `
+export const StyledPopUp = styled(Popup)`
+  &-popup-content {
+  }
+`
+
+export const PopupContendCard = styled.div`
+  margin: auto;
+
+  background-color: ${props => (props['data-dark'] ? '#212121' : 'white')};
+  border-radius: 10px;
+  padding: 40px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 60px;
+  }
+`
+
+export const PopupHeading = styled.h1`
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 30px;
+`
+
+export const PopupButtonCard = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+export const PopupButton = styled.button`
+  margin: 0px 10px;
+  padding: 8px 14px;
+  background-color: ${props => (props.confirm ? '#3b82f6' : 'transparent')};
+  color: ${props => (props.confirm ? '#ffffff' : ' #64748b')};
+  border: ${props => (props.confirm ? 'none' : '1px solid #64748b')};
+  border-radius: 4px;
+`
 
 export const MobileLogoutBtn = styled(NavButton)`
   @media screen and (min-width: 768px) {
@@ -96,7 +137,7 @@ export const MobileLogoutBtn = styled(NavButton)`
 export const LogoutIcon = styled(FiLogOut)`
   height: 20px;
   width: 20px;
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
 `
 
 export const DeskTopLogoutButton = styled.button`
@@ -106,8 +147,8 @@ export const DeskTopLogoutButton = styled.button`
   padding: 5px 14px;
   border-radius: 3px;
   color: #3b82f6;
-  border: 1px solid ${props => (props.isDarkTheme ? '#ebebeb' : '#3b82f6')};
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#3b82f6')};
+  border: 1px solid ${props => (props.dark ? '#ebebeb' : '#3b82f6')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#3b82f6')};
   align-self: flex-start;
   margin: 0px 13px;
   @media screen and (max-width: 767px) {

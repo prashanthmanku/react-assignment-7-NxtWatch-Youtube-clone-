@@ -13,13 +13,16 @@ import {
   ThemeButton,
   DarkIcon,
   LightIcon,
-  MenuButton,
-  MenuIcon,
   ProfileButton,
   ProfileImg,
   MobileLogoutBtn,
   LogoutIcon,
   DeskTopLogoutButton,
+  StyledPopUp,
+  PopupContendCard,
+  PopupHeading,
+  PopupButtonCard,
+  PopupButton,
 } from './styledComponents'
 
 const darkLogoUrl =
@@ -31,6 +34,7 @@ const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDarkTheme, changeTheme} = value
+
       const onChangeTheme = () => {
         changeTheme()
       }
@@ -40,9 +44,31 @@ const Header = props => (
         Cookies.remove('jwt_token')
         history.replace('./login')
       }
+      const renderLogutPopupContent = close => (
+        <PopupContendCard data-dark={isDarkTheme}>
+          <PopupHeading data-dark={isDarkTheme}>
+            Are you sure want to logout?
+          </PopupHeading>
+          <PopupButtonCard>
+            <PopupButton type="button" onClick={() => close()}>
+              Cancel
+            </PopupButton>
+            <PopupButton
+              type="button"
+              confirm
+              onClick={() => {
+                close()
+                onClickLogout()
+              }}
+            >
+              Confirm
+            </PopupButton>
+          </PopupButtonCard>
+        </PopupContendCard>
+      )
 
       return (
-        <NavbarContainer isDarkTheme={isDarkTheme}>
+        <NavbarContainer data-dark={isDarkTheme}>
           <ContentContainer>
             <Link to="/">
               <LogoImg
@@ -51,7 +77,11 @@ const Header = props => (
               />
             </Link>
             <NavItemsContainer>
-              <ThemeButton type="button" onClick={onChangeTheme}>
+              <ThemeButton
+                type="button"
+                onClick={onChangeTheme}
+                data-testid="theme"
+              >
                 {isDarkTheme ? <LightIcon /> : <DarkIcon />}
               </ThemeButton>
 
@@ -63,16 +93,34 @@ const Header = props => (
                   alt="profile"
                 />
               </ProfileButton>
-              <MobileLogoutBtn type="button" onClick={onClickLogout}>
-                <LogoutIcon isDarkTheme={isDarkTheme} />
-              </MobileLogoutBtn>
-              <DeskTopLogoutButton
-                type="button"
-                isDarkTheme={isDarkTheme}
-                onClick={onClickLogout}
+
+              <StyledPopUp
+                trigger={
+                  <MobileLogoutBtn type="button">
+                    <LogoutIcon data-dark={isDarkTheme} />
+                  </MobileLogoutBtn>
+                }
+                modal
+                closeOnDocumentClick={false}
               >
-                Logout
-              </DeskTopLogoutButton>
+                {close => renderLogutPopupContent(close)}
+              </StyledPopUp>
+
+              <StyledPopUp
+                trigger={
+                  <DeskTopLogoutButton
+                    type="button"
+                    data-dark={isDarkTheme}
+                    onClick={onClickLogout}
+                  >
+                    Logout
+                  </DeskTopLogoutButton>
+                }
+                modal
+                closeOnDocumentClick={false}
+              >
+                {close => renderLogutPopupContent(close)}
+              </StyledPopUp>
             </NavItemsContainer>
           </ContentContainer>
         </NavbarContainer>

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import LoginRoute from './components/LoginRoute'
 import HomeRoute from './components/HomeRoute'
@@ -7,20 +7,14 @@ import TrendingRoute from './components/TrendingRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideosRoute from './components/SavedVideosRoute'
 
+import NotFoundRoute from './components/NotFoundRoute'
+
 import VideoDetailesRoute from './components/VideoDetailesRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import NxtWatchContext from './context/NxtWatchContext'
 
 import './App.css'
-// const NxtWatchContext = React.createContext({
-//   isdarktheme: false,
-//   likedVideos: [],
-//   disLikedVideos: [],
-//   savedVideos: [],
-//   changeTheme: () => {},
-
-// })
 
 class App extends Component {
   state = {
@@ -115,6 +109,8 @@ class App extends Component {
             path="/videos/:id"
             component={VideoDetailesRoute}
           />
+          <Route exact path="/not-found" component={NotFoundRoute} />
+          <Redirect to="/not-found" />
         </Switch>
       </NxtWatchContext.Provider>
     )

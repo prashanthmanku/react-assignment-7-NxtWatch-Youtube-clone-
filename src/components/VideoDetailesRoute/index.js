@@ -7,6 +7,8 @@ import {formatDistanceToNow} from 'date-fns'
 
 import Header from '../Header'
 import MenuSideBar from '../MenuSideBar'
+import FailureView from '../FailureView'
+import LodingView from '../LodingView'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
@@ -30,17 +32,29 @@ import {
   ChannelContentContainer,
   ChannelName,
   ChannelDescription,
+  FalureWidthCard,
 } from './styledComponent'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  inProgress: 'INPROGRESS',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+}
+
 class VideoDetailesRoute extends Component {
-  state = {videoDetails: []}
+  state = {videoDetails: [], apiStatus: apiStatusConstants.initial}
 
   componentDidMount() {
     this.getVideoData()
   }
 
+  retryFunctionCall = () => {
+    this.getVideoData()
+  }
+
   getVideoData = async () => {
-    console.log('ll')
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const {match} = this.props
     const {id} = match.params
     const jwtToken = Cookies.get('jwt_token')
@@ -68,12 +82,22 @@ class VideoDetailesRoute extends Component {
         videoUrl: data.video_url,
         viewCount: data.view_count,
       }
-      console.log(updatedData)
-      this.setState({videoDetails: updatedData})
+      this.setState({
+        videoDetails: updatedData,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
-  render() {
+  renderLoadingView = () => (
+    <FalureWidthCard>
+      <LodingView />
+    </FalureWidthCard>
+  )
+
+  renderSuccessView = () => {
     const {videoDetails} = this.state
     const {
       channelName,
@@ -82,11 +106,11 @@ class VideoDetailesRoute extends Component {
       description,
       id,
       publishedAt,
-      thumbnailUrl,
       title,
       videoUrl,
       viewCount,
     } = videoDetails
+
     return (
       <NxtWatchContext.Consumer>
         {value => {
@@ -99,6 +123,12 @@ class VideoDetailesRoute extends Component {
             disLikedVideos,
             savedVideos,
           } = value
+
+          let time = formatDistanceToNow(new Date(publishedAt), {
+            addSuffix: true,
+          })
+
+          time = time.split(' ').slice(1).join(' ')
 
           const savedVideosIds = savedVideos.map(each => each.id)
 
@@ -115,92 +145,128 @@ class VideoDetailesRoute extends Component {
           }
 
           return (
+            <VideoDetailsWidthCard1>
+              <VideoDetailsWidthCard2>
+                <VideoCard>
+                  <VideoPlayer
+                    as={ReactPlayer}
+                    url={videoUrl}
+                    width="100%"
+                    height="100%"
+                    playing
+                    controls
+                  />
+                </VideoCard>
+                <ContentContainer>
+                  <Title isDarkTheme={isDarkTheme}>{title}</Title>
+                  <MoreContainer>
+                    <ViewsContainer>
+                      <ViewsText className="views">{viewCount} views</ViewsText>
+                      <ViewsText>{time}</ViewsText>
+                    </ViewsContainer>
+                    <IconsContainer>
+                      <IconButton
+                        type="button"
+                        onClick={onClickToAddLikedVideos}
+                        done={likedVideos.includes(id)}
+                      >
+                        <Icon as={BiLike} />
+                        <ButtonText>Like</ButtonText>
+                      </IconButton>
+                      <IconButton
+                        type="text"
+                        onClick={onClickToAddDisikedVideos}
+                        done={disLikedVideos.includes(id)}
+                      >
+                        <Icon as={BiDislike} />
+                        <ButtonText>Dislike</ButtonText>
+                      </IconButton>
+                      <IconButton
+                        type="text"
+                        onClick={onClickToAddSavededVideos}
+                        done={savedVideosIds.includes(id)}
+                      >
+                        {savedVideosIds.includes(id) ? (
+                          <Icon as={MdPlaylistAddCheck} />
+                        ) : (
+                          <Icon as={MdPlaylistAdd} />
+                        )}
+
+                        <ButtonText>
+                          {savedVideosIds.includes(id) ? 'Saved' : 'save'}
+                        </ButtonText>
+                      </IconButton>
+                    </IconsContainer>
+                  </MoreContainer>
+                  <ChannelCard>
+                    <ChannelLogo src={channelProfileImageUrl} alt="url" />
+                    <ChannelContentContainer>
+                      <ChannelName isDarkTheme={isDarkTheme}>
+                        {channelName}
+                      </ChannelName>
+                      <ButtonText className="subscribers">
+                        {channelSubscriberCount} subscribers
+                      </ButtonText>
+                      <ChannelDescription
+                        className="hide-on-mobile"
+                        isDarkTheme={isDarkTheme}
+                      >
+                        {description}
+                      </ChannelDescription>
+                    </ChannelContentContainer>
+                  </ChannelCard>
+                  <ChannelDescription
+                    className="hide-on-desktop"
+                    isDarkTheme={isDarkTheme}
+                  >
+                    {description}
+                  </ChannelDescription>
+                </ContentContainer>
+              </VideoDetailsWidthCard2>
+            </VideoDetailsWidthCard1>
+          )
+        }}
+      </NxtWatchContext.Consumer>
+    )
+  }
+
+  renderFailureView = () => (
+    <FalureWidthCard>
+      <FailureView retryFunctionCall={this.retryFunctionCall} />
+    </FalureWidthCard>
+  )
+
+  renderVideoDetailsView = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return (
+      <NxtWatchContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
+
+          return (
             <>
               <Header />
               <VideoDetailsBgContainer>
                 <MenuSideBar />
-                <VideoDetailsCard isDarkTheme={isDarkTheme}>
-                  <VideoDetailsWidthCard1>
-                    <VideoDetailsWidthCard2>
-                      <VideoCard>
-                        <VideoPlayer
-                          as={ReactPlayer}
-                          url={videoUrl}
-                          width="100%"
-                          height="100%"
-                          playing="true"
-                          controls
-                        />
-                      </VideoCard>
-                      <ContentContainer>
-                        <Title isDarkTheme={isDarkTheme}>{title}</Title>
-                        <MoreContainer>
-                          <ViewsContainer>
-                            <ViewsText className="views">
-                              {viewCount} views
-                            </ViewsText>
-                            <ViewsText>2 years ago</ViewsText>
-                          </ViewsContainer>
-                          <IconsContainer>
-                            <IconButton
-                              type="button"
-                              onClick={onClickToAddLikedVideos}
-                              done={likedVideos.includes(id)}
-                            >
-                              <Icon as={BiLike} />
-                              <ButtonText>Like</ButtonText>
-                            </IconButton>
-                            <IconButton
-                              type="text"
-                              onClick={onClickToAddDisikedVideos}
-                              done={disLikedVideos.includes(id)}
-                            >
-                              <Icon as={BiDislike} />
-                              <ButtonText>Dislike</ButtonText>
-                            </IconButton>
-                            <IconButton
-                              type="text"
-                              onClick={onClickToAddSavededVideos}
-                              done={savedVideosIds.includes(id)}
-                            >
-                              {savedVideosIds.includes(id) ? (
-                                <Icon as={MdPlaylistAddCheck} />
-                              ) : (
-                                <Icon as={MdPlaylistAdd} />
-                              )}
-
-                              <ButtonText>
-                                {savedVideosIds.includes(id) ? 'Saved' : 'save'}
-                              </ButtonText>
-                            </IconButton>
-                          </IconsContainer>
-                        </MoreContainer>
-                        <ChannelCard>
-                          <ChannelLogo src={channelProfileImageUrl} alt="url" />
-                          <ChannelContentContainer>
-                            <ChannelName isDarkTheme={isDarkTheme}>
-                              {channelName}
-                            </ChannelName>
-                            <ButtonText className="subscribers">
-                              {channelSubscriberCount} subscribers
-                            </ButtonText>
-                            <ChannelDescription
-                              className="hide-on-mobile"
-                              isDarkTheme={isDarkTheme}
-                            >
-                              {description}
-                            </ChannelDescription>
-                          </ChannelContentContainer>
-                        </ChannelCard>
-                        <ChannelDescription
-                          className="hide-on-desktop"
-                          isDarkTheme={isDarkTheme}
-                        >
-                          {description}
-                        </ChannelDescription>
-                      </ContentContainer>
-                    </VideoDetailsWidthCard2>
-                  </VideoDetailsWidthCard1>
+                <VideoDetailsCard
+                  isDarkTheme={isDarkTheme}
+                  data-testid="videoItemDetails"
+                >
+                  {this.renderVideoDetailsView()}
                 </VideoDetailsCard>
               </VideoDetailsBgContainer>
             </>

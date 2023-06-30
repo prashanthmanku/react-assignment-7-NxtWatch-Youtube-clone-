@@ -5,21 +5,34 @@ export const ItemContainer = styled.li`
   width: 100%;
   flex-grow: 1;
   @media screen and (min-width: 576px) {
-    width: 250px;
-    margin: 20px 15px 20px 0px;
+    // width: 250px;
+    // margin: 20px 15px 20px 0px;
+    width: ${props => (props.value ? '250px' : '100%')};
+    max-width: 900px;
+    margin: ${props =>
+      props.value ? '20px 15px 20px 0px' : '10px 0px 0px 0px'};
   }
 `
 
 export const VideoLinkContainer = styled.div`
+  cursor: pointer;
   text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  @media screen and (min-width: 576px) {
+    flex-direction: ${props => (props.value ? 'column' : 'row')};
+  }
 `
 
 export const ThumbnailImg = styled.img`
-  //   width: 250px;
   width: 100%;
+
   margin-bottom: 10px;
   @media screen and (min-width: 576px) {
     border-radius: 10px;
+    width: ${props => (props.value ? '100%' : '50%')};
+    margin-right: 20px;
   }
 `
 
@@ -27,6 +40,9 @@ export const VideoDetailsContainer = styled.div`
   @media screen and (max-width: 575px) {
     width: 90%;
     margin: auto;
+  }
+  @media screen and (min-width: 576px) {
+    width: ${props => (props.value ? '100%' : '50%')};
   }
 
   display: flex;
@@ -36,6 +52,9 @@ export const VideoDetailsContainer = styled.div`
 export const ChannelLogo = styled.img`
   width: 35px;
   margin-right: 10px;
+  @media screen and (min-width: 575px) {
+    display: ${props => (props.value ? 'flex' : 'none')};
+  }
 `
 
 export const ContentContainer = styled.div``
@@ -76,7 +95,7 @@ export const ChannelName = styled.p`
 export const ViewsContainer = styled.ul`
   padding: 0px;
   display: flex;
-  flex-wrap:wrap:
+  flex-wrap: wrap;
 `
 
 export const Views = styled.li`

@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -29,6 +29,8 @@ const HomeVideoItem = props => {
     title,
     viewCount,
   } = videoDetails
+  const {match} = props
+  const {path} = match
 
   return (
     <NxtWatchContext.Consumer>
@@ -40,11 +42,23 @@ const HomeVideoItem = props => {
         time = time.join(' ')
 
         return (
-          <ItemContainer>
-            <VideoLinkContainer as={Link} to={`/videos/${id}`}>
-              <ThumbnailImg src={thumbnailUrl} alt="thumbnail" />
-              <VideoDetailsContainer>
-                <ChannelLogo src={channelProfileImageUrl} alt="channel-logo" />
+          <ItemContainer value={path === '/'}>
+            <VideoLinkContainer
+              as={Link}
+              to={`/videos/${id}`}
+              value={path === '/'}
+            >
+              <ThumbnailImg
+                src={thumbnailUrl}
+                alt="video thumbnail"
+                value={path === '/'}
+              />
+              <VideoDetailsContainer value={path === '/'}>
+                <ChannelLogo
+                  src={channelProfileImageUrl}
+                  alt="channel-logo"
+                  value={path === '/'}
+                />
                 <ContentContainer>
                   <Title isDarkTheme={isDarkTheme}>{title}</Title>
                   <MoreContainer>
@@ -64,4 +78,4 @@ const HomeVideoItem = props => {
   )
 }
 
-export default HomeVideoItem
+export default withRouter(HomeVideoItem)

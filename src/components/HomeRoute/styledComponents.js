@@ -15,7 +15,7 @@ export const HomeMainContainer = styled.div`
 
 export const HomeContentContainer = styled.div`
   background-color: ${props =>
-    props.isDarkTheme ? '#181818' : '#f9f9f9'}; // f4f4f4 f9f9f9
+    props.isDarkTheme ? '#181818' : ' #f1f5f9'}; // f4f4f4 f9f9f9
   min-height: 90vh;
   padding: 20px 0px;
 `

@@ -18,7 +18,7 @@ export const CloseContainer = styled.div`
 
 export const StyledPopup = styled(Popup)`
   &-overlay {
-    background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
+    background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
   }
   &-popup-content {
   }
@@ -46,10 +46,10 @@ export const MenuIcon = styled(BiMenu)`
   height: 24px;
   width: 24px;
 
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
 `
 export const CloseIcon = styled(RiCloseLine)`
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
   height: 25px;
   width: 25px;
 `

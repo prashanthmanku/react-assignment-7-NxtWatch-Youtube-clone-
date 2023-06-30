@@ -1,4 +1,3 @@
-import {RiCloseLine} from 'react-icons/ri'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
@@ -19,10 +18,10 @@ const MenuPopup = () => (
       const {isDarkTheme} = value
       return (
         <StyledPopup
-          isDarkTheme={isDarkTheme}
+          data-dark={isDarkTheme}
           trigger={
             <MenuButton>
-              <MenuIcon isDarkTheme={isDarkTheme} />
+              <MenuIcon data-dark={isDarkTheme} />
             </MenuButton>
           }
           closeOnDocumentClick={false}
@@ -32,7 +31,7 @@ const MenuPopup = () => (
             <>
               <CloseContainer>
                 <CloseButton type="button" onClick={() => close()}>
-                  <CloseIcon isDarkTheme={isDarkTheme} />
+                  <CloseIcon data-dark={isDarkTheme} />
                 </CloseButton>
               </CloseContainer>
               <PopupContent>
