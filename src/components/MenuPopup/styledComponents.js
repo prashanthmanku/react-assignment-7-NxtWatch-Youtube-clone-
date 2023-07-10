@@ -6,9 +6,6 @@ import Popup from 'reactjs-popup'
 
 export const PopupContent = styled.div`
   height: 90vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
 `
 export const CloseContainer = styled.div`
   display: flex;
@@ -18,9 +15,14 @@ export const CloseContainer = styled.div`
 
 export const StyledPopup = styled(Popup)`
   &-overlay {
-    background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
+    // background-color: ${props =>
+      props['data-dark'] ? '#212121' : '#ffffff'};
   }
   &-popup-content {
+  }
+`
+export const SidebarCard = styled.div`
+  @media screen and (max-width: 767px) {
   }
 `
 

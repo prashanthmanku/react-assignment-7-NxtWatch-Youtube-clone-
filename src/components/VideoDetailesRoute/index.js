@@ -13,6 +13,7 @@ import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
   VideoDetailsBgContainer,
+  SidebarCard,
   VideoDetailsCard,
   VideoDetailsWidthCard1,
   VideoDetailsWidthCard2,
@@ -264,7 +265,9 @@ class VideoDetailesRoute extends Component {
             <>
               <Header />
               <VideoDetailsBgContainer>
-                <MenuSideBar />
+                <SidebarCard>
+                  <MenuSideBar />
+                </SidebarCard>
                 <VideoDetailsCard
                   isDarkTheme={isDarkTheme}
                   data-testid="videoItemDetails"

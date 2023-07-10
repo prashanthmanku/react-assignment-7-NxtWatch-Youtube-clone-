@@ -4,6 +4,12 @@ export const GameRouteBgCard = styled.div`
   margin-top: 10vh;
 `
 
+export const SidebarCard = styled.div`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
 export const GameVideosBgCard = styled.div`
   min-height: 90vh;
   background-color: ${props => (props.isDarkTheme ? '#181818' : '#f9f9f9')};

@@ -4,6 +4,11 @@ export const VideoDetailsBgContainer = styled.div`
   margin-top: 10vh;
   display: flex;
 `
+export const SidebarCard = styled.div`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
 
 export const VideoDetailsCard = styled.div`
   min-height: 90vh;

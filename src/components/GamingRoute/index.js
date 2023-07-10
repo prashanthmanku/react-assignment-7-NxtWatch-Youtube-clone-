@@ -11,6 +11,7 @@ import LodingView from '../LodingView'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   GameRouteBgCard,
+  SidebarCard,
   GameVideosBgCard,
   GameVideosCard,
   GameVideosHeadingCard,
@@ -120,7 +121,9 @@ class GamingRoute extends Component {
             const {isDarkTheme} = value
             return (
               <GameRouteBgCard>
-                <MenuSideBar />
+                <SidebarCard>
+                  <MenuSideBar />
+                </SidebarCard>
                 <GameVideosBgCard
                   isDarkTheme={isDarkTheme}
                   data-testid="gaming"

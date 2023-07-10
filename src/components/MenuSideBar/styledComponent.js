@@ -13,7 +13,7 @@ export const SideBarContainer = styled.div`
   justify-content: space-between;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
   @media screen and (max-width: 767px) {
-    display: none;
+    // display: none;
   }
 `
 

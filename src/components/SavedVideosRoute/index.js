@@ -8,6 +8,7 @@ import MenuSideBar from '../MenuSideBar'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   SavedRouteBgCard,
+  SidebarCard,
   SavedVideosBgCard,
   SavedVideosCard,
   SavedVideosHeadingCard,
@@ -69,7 +70,9 @@ class SavedVideosRoute extends Component {
             const {isDarkTheme, savedVideos} = value
             return (
               <SavedRouteBgCard>
-                <MenuSideBar />
+                <SidebarCard>
+                  <MenuSideBar />
+                </SidebarCard>
                 <SavedVideosBgCard
                   isDarkTheme={isDarkTheme}
                   data-testid="savedVideos"

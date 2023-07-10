@@ -16,6 +16,7 @@ import {
   HomeBgContainer,
   HomeMainContainer,
   HomeContentContainer,
+  SidebarCard,
 
   // For Banner
   BannerContainer,
@@ -191,7 +192,9 @@ class Home extends Component {
             <>
               <Header />
               <HomeBgContainer>
-                <MenuSideBar />
+                <SidebarCard>
+                  <MenuSideBar />
+                </SidebarCard>
                 <HomeMainContainer>
                   {isBannerVisible && (
                     <BannerContainer>

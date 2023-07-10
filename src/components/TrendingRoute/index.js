@@ -11,6 +11,7 @@ import LodingView from '../LodingView'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   SavedRouteBgCard,
+  SidebarCard,
   SavedVideosBgCard,
   SavedVideosCard,
   SavedVideosHeadingCard,
@@ -123,7 +124,9 @@ class TrendingRoute extends Component {
             const {isDarkTheme} = value
             return (
               <SavedRouteBgCard>
-                <MenuSideBar />
+                <SidebarCard>
+                  <MenuSideBar />
+                </SidebarCard>
                 <SavedVideosBgCard
                   isDarkTheme={isDarkTheme}
                   data-testid="trending"

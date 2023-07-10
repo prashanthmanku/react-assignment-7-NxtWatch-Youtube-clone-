@@ -6,6 +6,12 @@ export const HomeBgContainer = styled.div`
   margin-top: 10vh;
 `
 
+export const SidebarCard = styled.div`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
 export const HomeMainContainer = styled.div`
   width: 100%;
   @media screen and (min-width: 768px) {
