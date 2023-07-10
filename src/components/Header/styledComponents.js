@@ -128,6 +128,8 @@ export const PopupButton = styled.button`
   color: ${props => (props.confirm ? '#ffffff' : ' #64748b')};
   border: ${props => (props.confirm ? 'none' : '1px solid #64748b')};
   border-radius: 4px;
+  outline: none;
+  cursor: pointer;
 `
 
 export const MobileLogoutBtn = styled(NavButton)`
@@ -153,6 +155,8 @@ export const DeskTopLogoutButton = styled.button`
   color: ${props => (props['data-dark'] ? '#ebebeb' : '#3b82f6')};
   align-self: flex-start;
   margin: 0px 13px;
+  outline: none;
+  cursor: pointer;
   @media screen and (max-width: 767px) {
     display: none;
   }

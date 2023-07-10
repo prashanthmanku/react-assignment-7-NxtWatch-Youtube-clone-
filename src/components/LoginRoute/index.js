@@ -59,13 +59,15 @@ class LoginRoute extends Component {
 
   onSubmitForm = async e => {
     e.preventDefault()
-    const {username, password} = this.state
-    let userDetails = {}
-    if (username === 'prashanth' && password === 'prash@2023') {
-      userDetails = {username: 'rahul', password: 'rahul@2021'}
-    } else {
-      userDetails = {username, password}
+    let {username, password} = this.state
+    if (username === 'prashanth') {
+      username = 'rahul'
     }
+    if (password === 'prash@2023') {
+      password = 'rahul@2021'
+    }
+
+    const userDetails = {username, password}
 
     const url = 'https://apis.ccbp.in/login'
     const options = {

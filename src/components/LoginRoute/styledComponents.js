@@ -73,6 +73,7 @@ export const CheckBoxContainer = styled.div`
 export const Checkbox = styled.input`
   height: 15px;
   width: 15px;
+  cursor: pointer;
 `
 
 export const CheckBoxLabel = styled.label`
@@ -80,6 +81,7 @@ export const CheckBoxLabel = styled.label`
   font-weight: 500;
   font-size: 14px;
   color: ${props => (props.isDarkTheme ? '#e2e8f0' : '#181818')};
+  cursor: pointer;
 `
 
 export const LoginButton = styled.button`
@@ -105,4 +107,7 @@ export const ErrorMessage = styled.p`
 export const UserDetails = styled.p`
   line-height: 23px;
   font-size: 14px;
+`
+export const Span = styled.h1`
+  color: red;
 `
