@@ -6,13 +6,11 @@ import {
   MenuIcon,
   StyledPopup,
   CloseContainer,
-  SidebarCard,
   CloseIcon,
   CloseButton,
 } from './styledComponents'
 
 import MenuContent from '../MenuContent'
-import MenuSideBar from '../MenuSideBar'
 
 const MenuPopup = () => (
   <NxtWatchContext.Consumer>
@@ -26,14 +24,21 @@ const MenuPopup = () => (
               <MenuIcon data-dark={isDarkTheme} />
             </MenuButton>
           }
-          //   closeOnDocumentClick={false}
+          closeOnDocumentClick={false}
           modal
         >
-          <PopupContent>
-            <SidebarCard>
-              <MenuSideBar />
-            </SidebarCard>
-          </PopupContent>
+          {close => (
+            <>
+              <CloseContainer>
+                <CloseButton type="button" onClick={() => close()}>
+                  <CloseIcon data-dark={isDarkTheme} />
+                </CloseButton>
+              </CloseContainer>
+              <PopupContent>
+                <MenuContent />
+              </PopupContent>
+            </>
+          )}
         </StyledPopup>
       )
     }}

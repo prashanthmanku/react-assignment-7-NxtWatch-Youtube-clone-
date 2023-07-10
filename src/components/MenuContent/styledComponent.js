@@ -23,9 +23,9 @@ export const Li = styled.li`
 export const MenuDetailsContainer = styled.div`
   display: flex;
   align-items: center;
-  //   @media screen and (max-width: 767px) {
-  //     margin: auto;
-  //   }
+  @media screen and (max-width: 767px) {
+    margin: auto;
+  }
 `
 
 export const MenuItemContainer = styled.div`
@@ -44,7 +44,6 @@ export const MenuItemContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding: 0px 16px;
   }
-  padding: 0px 16px;
 `
 
 export const MenuIcon = styled.img`
@@ -56,17 +55,17 @@ export const MenuIcon = styled.img`
   }};
   width: 18px;
   height: 18px;
-  //   @media screen and (max-width: 767px) {
-  //     &.trending {
-  //       margin-left: 18px;
-  //     }
-  //     &.gaming {
-  //       margin-left: 14px;
-  //     }
-  //     &.saved-videos {
-  //       margin-left: 56px;
-  //     }
-  //   }
+  @media screen and (max-width: 767px) {
+    &.trending {
+      margin-left: 18px;
+    }
+    &.gaming {
+      margin-left: 14px;
+    }
+    &.saved-videos {
+      margin-left: 56px;
+    }
+  }
 `
 
 export const MenuName = styled.p`
