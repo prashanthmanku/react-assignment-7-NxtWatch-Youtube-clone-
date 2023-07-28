@@ -17,8 +17,6 @@ export const NavbarContainer = styled.nav`
   top: 0;
   left: 0;
   z-index: 100;
-  //   right: 0;
-  //   bottom: 0;
 `
 
 export const ContentContainer = styled.div`

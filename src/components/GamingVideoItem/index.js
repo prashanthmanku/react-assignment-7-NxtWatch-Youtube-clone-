@@ -23,23 +23,11 @@ const HomeVideoItem = props => {
   return (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme, isPopupOpened} = value
-        const pop = event => {
-          if (isPopupOpened) {
-            event.preventDefault()
-          }
-        }
+        const {isDarkTheme} = value
 
         return (
-          <ItemContainer onClick={pop}>
-            <VideoLinkContainer
-              as={Link}
-              to={`/videos/${id}`}
-              style={{
-                pointerEvents: isPopupOpened ? 'none' : 'auto',
-              }}
-              onClick={pop}
-            >
+          <ItemContainer>
+            <VideoLinkContainer as={Link} to={`/videos/${id}`}>
               <ThumbnailImg src={thumbnailUrl} alt="video thumbnail" />
 
               <Title isDarkTheme={isDarkTheme}>{title}</Title>

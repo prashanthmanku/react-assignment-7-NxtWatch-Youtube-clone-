@@ -123,8 +123,6 @@ class Home extends Component {
     this.setState({searchInput: userEnterdText}, this.getVideosData)
   }
 
-  renderLoadingView = () => {}
-
   renderVideosList = () => {
     const {videosList} = this.state
     return (
@@ -186,16 +184,12 @@ class Home extends Component {
     return (
       <NxtWatchContext.Consumer>
         {value => {
-          const {isDarkTheme, isPopupOpened} = value
-          const pop = e => {
-            if (isPopupOpened) {
-              e.preventDefault()
-            }
-          }
+          const {isDarkTheme} = value
+
           return (
             <>
               <Header />
-              <HomeBgContainer onClick={pop}>
+              <HomeBgContainer>
                 <SidebarCard>
                   <MenuSideBar />
                 </SidebarCard>

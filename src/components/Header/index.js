@@ -34,12 +34,7 @@ const lightLogoUrl =
 const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDarkTheme, changeTheme, changeRouteKey, isPopupOpened} = value
-      const pop = e => {
-        if (isPopupOpened) {
-          e.preventDefault()
-        }
-      }
+      const {isDarkTheme, changeTheme, changeRouteKey} = value
 
       const onChangeTheme = () => {
         changeTheme()
@@ -78,7 +73,7 @@ const Header = props => (
       )
 
       return (
-        <NavbarContainer data-dark={isDarkTheme} onClick={pop}>
+        <NavbarContainer data-dark={isDarkTheme}>
           <ContentContainer>
             <LogoMenuContainer>
               <MenuPopup />
