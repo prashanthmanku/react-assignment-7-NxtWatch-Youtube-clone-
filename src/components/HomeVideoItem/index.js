@@ -35,18 +35,28 @@ const HomeVideoItem = props => {
   return (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme} = value
+        const {isDarkTheme, isPopupOpened} = value
         let time = formatDistanceToNow(new Date(publishedAt))
         time = time.split(' ')
         time = time.slice(1)
         time = time.join(' ')
 
+        const onTouchStart = e => {
+          console.log(isPopupOpened)
+
+          if (isPopupOpened) {
+            e.preventDefault()
+          }
+        }
+
         return (
           <ItemContainer value={path === '/'}>
             <VideoLinkContainer
               as={Link}
-              to={`/videos/${id}`}
+              to={isPopupOpened ? null : `/videos/${id}`}
               value={path === '/'}
+              //   style={{touchAction: 'none'}}
+              onTouchStart={onTouchStart}
             >
               <ThumbnailImg
                 src={thumbnailUrl}

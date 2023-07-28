@@ -28,6 +28,10 @@ export const ContentContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `
+export const LogoMenuContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 export const LogoImg = styled.img`
   width: 100px;

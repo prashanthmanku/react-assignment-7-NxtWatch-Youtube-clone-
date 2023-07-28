@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const ItemContainer = styled.li`
   margin: 20px 0px;
   width: 100%;
+
   flex-grow: 1;
   @media screen and (min-width: 576px) {
     // width: 250px;
@@ -33,6 +34,7 @@ export const ThumbnailImg = styled.img`
     border-radius: 10px;
     width: ${props => (props.value ? '100%' : '50%')};
     margin-right: 20px;
+    max-height: 400px;
   }
 `
 

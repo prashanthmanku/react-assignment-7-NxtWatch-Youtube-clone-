@@ -24,9 +24,10 @@ const MenuContent = props => {
   return (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme, changeRouteKey} = value
+        const {isDarkTheme, changeRouteKey, changePopupMode} = value
         const onClickChangeRouteKey = () => {
           changeRouteKey()
+          changePopupMode(false)
         }
         return (
           <MenuContentContainer data-dark={isDarkTheme}>

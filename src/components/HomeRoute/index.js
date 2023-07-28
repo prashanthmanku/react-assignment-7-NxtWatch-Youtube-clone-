@@ -186,12 +186,16 @@ class Home extends Component {
     return (
       <NxtWatchContext.Consumer>
         {value => {
-          const {isDarkTheme} = value
-
+          const {isDarkTheme, isPopupOpened} = value
+          const pop = e => {
+            if (isPopupOpened) {
+              e.preventDefault()
+            }
+          }
           return (
             <>
               <Header />
-              <HomeBgContainer>
+              <HomeBgContainer onClick={pop}>
                 <SidebarCard>
                   <MenuSideBar />
                 </SidebarCard>

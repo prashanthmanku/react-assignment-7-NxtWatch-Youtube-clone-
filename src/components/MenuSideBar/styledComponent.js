@@ -2,18 +2,24 @@ import styled from 'styled-components'
 
 export const SideBarContainer = styled.div`
   height: 90vh;
+  overflow-y: auto;
   width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin-top: 10vh;
+  @media screen and (min-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 10vh;
+  }
+
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
   @media screen and (max-width: 767px) {
-    // display: none;
+    margin-top: 0vh;
+    // height: 80vh;
+    overflow-y: auto;
   }
 `
 

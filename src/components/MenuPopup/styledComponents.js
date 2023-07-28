@@ -5,22 +5,37 @@ import {RiCloseLine} from 'react-icons/ri'
 import Popup from 'reactjs-popup'
 
 export const PopupContent = styled.div`
-  height: 90vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
+  height: 100vh;
+  box-shadow: 0px 4px 16px 0px #212121;
+  // ${props => (props['data-dark'] ? ' #212121' : ' #212121')};
 `
 export const CloseContainer = styled.div`
+  height: 10vh;
+  min-height: 50px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+
+  width: 250px;
+  width: 100%;
+  background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
 `
 
 export const StyledPopup = styled(Popup)`
   &-overlay {
     background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
+
+    width: 250px;
+    background-color: transparent;
   }
   &-popup-content {
+  }
+`
+export const SidebarCard = styled.div`
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
+  @media screen and (max-width: 767px) {
   }
 `
 
@@ -40,11 +55,12 @@ export const MenuButton = styled(NavButton)`
   @media screen and (min-width: 768px) {
     display: none;
   }
+  margin-right: 20px;
 `
 
 export const MenuIcon = styled(BiMenu)`
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
 
   color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
 `
@@ -56,5 +72,16 @@ export const CloseIcon = styled(RiCloseLine)`
 
 export const CloseButton = styled(NavButton)`
   margin-right: 30px;
-  margin-top: 20px;
+  //   margin-top: 20px;
+  align-self: flex-end;
+`
+export const LogoImg = styled.img`
+  width: 100px;
+  //   margin-top: 10px;
+  //   margin-left: 30px;
+`
+
+export const PopupNavWidth = styled.div`
+  width: 90%;
+  margin: auto;
 `

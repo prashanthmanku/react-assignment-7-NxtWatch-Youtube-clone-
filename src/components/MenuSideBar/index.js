@@ -25,8 +25,7 @@ const MenuSideBar = () => (
             <IconsContainer>
               <SocialMediaButton
                 href="https://www.linkedin.com/in/prashanth-manku97/"
-                target="_blank"
-                rel="noreferrer"
+                targ
               >
                 <Icon
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"

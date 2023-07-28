@@ -7,6 +7,7 @@ import MenuPopup from '../MenuPopup'
 import {
   NavbarContainer,
   ContentContainer,
+  LogoMenuContainer,
   LogoImg,
   NavItemsContainer,
   //   NavButton,
@@ -33,7 +34,12 @@ const lightLogoUrl =
 const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDarkTheme, changeTheme, changeRouteKey} = value
+      const {isDarkTheme, changeTheme, changeRouteKey, isPopupOpened} = value
+      const pop = e => {
+        if (isPopupOpened) {
+          e.preventDefault()
+        }
+      }
 
       const onChangeTheme = () => {
         changeTheme()
@@ -72,15 +78,18 @@ const Header = props => (
       )
 
       return (
-        <NavbarContainer data-dark={isDarkTheme}>
+        <NavbarContainer data-dark={isDarkTheme} onClick={pop}>
           <ContentContainer>
-            <Link to="/">
-              <LogoImg
-                src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-                alt="website logo"
-                onClick={onChangeRouteKey}
-              />
-            </Link>
+            <LogoMenuContainer>
+              <MenuPopup />
+              <Link to="/">
+                <LogoImg
+                  src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
+                  alt="website logo"
+                  onClick={onChangeRouteKey}
+                />
+              </Link>
+            </LogoMenuContainer>
             <NavItemsContainer>
               <ThemeButton
                 type="button"
@@ -90,7 +99,7 @@ const Header = props => (
                 {isDarkTheme ? <LightIcon /> : <DarkIcon />}
               </ThemeButton>
 
-              <MenuPopup />
+              {/* <MenuPopup /> */}
 
               <ProfileButton type="button">
                 <ProfileImg

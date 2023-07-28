@@ -6,11 +6,13 @@ const NxtWatchContext = React.createContext({
   disLikedVideos: [],
   savedVideos: [],
   routeKey: 0,
+  isPopupOpened: false,
   changeRouteKey: () => {},
   changeTheme: () => {},
   addToLikedVideos: () => {},
   addToDislikedVideos: () => {},
   addToSavedVideos: () => {},
+  changePopupMode: () => {},
 })
 
 export default NxtWatchContext
