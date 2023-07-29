@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import {RiCloseLine} from 'react-icons/ri'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import MenuSideBar from '../MenuSideBar'
 
@@ -26,7 +27,6 @@ const MenuPopup = () => (
         changeRouteKey,
 
         changePopupMode,
-        isPopupOpen,
       } = value
       const onChangeRouteKey = () => {
         changeRouteKey()
@@ -40,51 +40,44 @@ const MenuPopup = () => (
         changePopupMode(false)
       }
 
-      const handleTouchStart = event => {
-        if (isPopupOpen) {
-          event.preventDefault()
-        }
-      }
-
       return (
-        <div onTouchStart={handleTouchStart}>
-          <StyledPopup
-            data-dark={isDarkTheme}
-            trigger={
-              <MenuButton>
-                <MenuIcon data-dark={isDarkTheme} />
-              </MenuButton>
-            }
-            modal
-            lockScroll
-            onOpen={openPopup}
-            onClose={closePopup}
-          >
-            {close => (
-              <>
-                <PopupContent data-dark={isDarkTheme}>
-                  <CloseContainer data-dark={isDarkTheme}>
-                    <PopupNavWidth>
-                      <MenuButton onClick={() => close()}>
-                        <MenuIcon data-dark={isDarkTheme} />
-                      </MenuButton>
-                      <Link to="/" onClick={() => close()}>
-                        <LogoImg
-                          src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
-                          alt="website logo"
-                          onClick={onChangeRouteKey}
-                        />
-                      </Link>
-                    </PopupNavWidth>
-                  </CloseContainer>
-                  <SidebarCard data-dark={isDarkTheme}>
-                    <MenuSideBar />
-                  </SidebarCard>
-                </PopupContent>
-              </>
-            )}
-          </StyledPopup>
-        </div>
+        <StyledPopup
+          data-dark={isDarkTheme}
+          trigger={
+            <MenuButton>
+              <MenuIcon data-dark={isDarkTheme} />
+            </MenuButton>
+          }
+          modal
+          lockScroll
+          onOpen={openPopup}
+          onClose={closePopup}
+          closeOnDocumentClick={false}
+        >
+          {close => (
+            <>
+              <PopupContent data-dark={isDarkTheme}>
+                <CloseContainer data-dark={isDarkTheme}>
+                  <PopupNavWidth>
+                    <MenuButton onClick={() => close()}>
+                      <MenuIcon as={RiCloseLine} data-dark={isDarkTheme} />
+                    </MenuButton>
+                    <Link to="/" onClick={() => close()}>
+                      <LogoImg
+                        src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
+                        alt="website logo"
+                        onClick={onChangeRouteKey}
+                      />
+                    </Link>
+                  </PopupNavWidth>
+                </CloseContainer>
+                <SidebarCard data-dark={isDarkTheme}>
+                  <MenuSideBar />
+                </SidebarCard>
+              </PopupContent>
+            </>
+          )}
+        </StyledPopup>
       )
     }}
   </NxtWatchContext.Consumer>

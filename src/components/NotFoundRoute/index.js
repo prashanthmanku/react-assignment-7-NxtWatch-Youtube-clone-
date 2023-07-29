@@ -10,6 +10,7 @@ import {
   Img,
   Heading,
   Description,
+  SidebarCard,
 } from './styledComponents'
 
 const darkUrl =
@@ -25,7 +26,9 @@ const NotFoundRoute = () => (
         const {isDarkTheme} = value
         return (
           <NotFoundRouteBgCard>
-            <MenuSideBar />
+            <SidebarCard>
+              <MenuSideBar />
+            </SidebarCard>
             <NotFoundCard isDarkTheme={isDarkTheme}>
               <NotFoundWidthCard>
                 <Img src={isDarkTheme ? darkUrl : lightUrl} alt="not found" />

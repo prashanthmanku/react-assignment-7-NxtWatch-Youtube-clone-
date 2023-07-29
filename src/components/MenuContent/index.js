@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 
 import {AiFillHome} from 'react-icons/ai'
@@ -20,6 +21,42 @@ import {
 const MenuContent = props => {
   const {match} = props
   const {path} = match
+  const [HomeisFocused, setHomeisFocused] = useState(false)
+  const [trndingisFocused, settrndingisFocused] = useState(false)
+  const [gamingisFocused, setgamingisFocused] = useState(false)
+  const [savedisFocused, setsavedisFocused] = useState(false)
+
+  const onMouseEnterHome = () => {
+    setHomeisFocused(true)
+  }
+
+  const onMouseLeaveHome = () => {
+    setHomeisFocused(false)
+  }
+
+  const onMouseEnterTrending = () => {
+    settrndingisFocused(true)
+  }
+
+  const onMouseLeaveTrending = () => {
+    settrndingisFocused(false)
+  }
+
+  const onMouseEnterGaming = () => {
+    setgamingisFocused(true)
+  }
+
+  const onMouseLeaveGaming = () => {
+    setgamingisFocused(false)
+  }
+
+  const onMouseEnterSaved = () => {
+    setsavedisFocused(true)
+  }
+
+  const onMouseLeaveSaved = () => {
+    setsavedisFocused(false)
+  }
 
   return (
     <NxtWatchContext.Consumer>
@@ -39,6 +76,9 @@ const MenuContent = props => {
                   data-dark={isDarkTheme}
                   data-selected={path === '/'}
                   onClick={onClickChangeRouteKey}
+                  onMouseEnter={onMouseEnterHome}
+                  onMouseLeave={onMouseLeaveHome}
+                  data-focus={HomeisFocused}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -62,6 +102,9 @@ const MenuContent = props => {
                   data-dark={isDarkTheme}
                   data-selected={path === '/trending'}
                   onClick={onClickChangeRouteKey}
+                  onMouseEnter={onMouseEnterTrending}
+                  onMouseLeave={onMouseLeaveTrending}
+                  data-focus={trndingisFocused}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -86,6 +129,9 @@ const MenuContent = props => {
                   data-dark={isDarkTheme}
                   data-selected={path === '/gaming'}
                   onClick={onClickChangeRouteKey}
+                  onMouseEnter={onMouseEnterGaming}
+                  onMouseLeave={onMouseLeaveGaming}
+                  data-focus={gamingisFocused}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
@@ -110,6 +156,9 @@ const MenuContent = props => {
                   data-dark={isDarkTheme}
                   data-selected={path === '/saved-videos'}
                   onClick={onClickChangeRouteKey}
+                  onMouseEnter={onMouseEnterSaved}
+                  onMouseLeave={onMouseLeaveSaved}
+                  data-focus={savedisFocused}
                 >
                   <MenuDetailsContainer>
                     <MenuIcon

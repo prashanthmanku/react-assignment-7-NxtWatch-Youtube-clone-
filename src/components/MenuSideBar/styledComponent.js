@@ -4,11 +4,11 @@ export const SideBarContainer = styled.div`
   height: 90vh;
   overflow-y: auto;
   width: 250px;
+  margin-top: 64px;
   @media screen and (min-width: 767px) {
     position: fixed;
     top: 0;
     left: 0;
-    margin-top: 10vh;
   }
 
   padding-bottom: 30px;
@@ -20,11 +20,13 @@ export const SideBarContainer = styled.div`
     margin-top: 0vh;
     // height: 80vh;
     overflow-y: auto;
+    width: 90vw;
   }
 `
 
 export const ContactUsContainer = styled.div`
   padding-left: 20px;
+  padding-bottom: 20px;
   color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
 `
 
@@ -46,7 +48,20 @@ export const SocialMediaButton = styled.a`
   border: none;
   outline: none;
   cursor: pointer;
-  margin-right: 20px;
+  margin-right: 15px;
+  height: 46px;
+  width: 46px;
+  border-radius: 23px;
+  //   border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => {
+    if (props['data-socialBtnActive'] === true) {
+      return props.isDarkTheme ? ' #383838' : '#f1f5f9'
+    }
+    return null
+  }};
 `
 
 export const Icon = styled.img`

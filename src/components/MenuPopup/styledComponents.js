@@ -1,16 +1,20 @@
 import styled from 'styled-components'
 import {BiMenu} from 'react-icons/bi'
-import {RiCloseLine} from 'react-icons/ri'
 
 import Popup from 'reactjs-popup'
 
 export const PopupContent = styled.div`
   height: 100vh;
+  width: 90vw;
+
   box-shadow: 0px 4px 16px 0px #212121;
-  // ${props => (props['data-dark'] ? ' #212121' : ' #212121')};
+  background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 export const CloseContainer = styled.div`
-  height: 10vh;
+  height: 64px;
   min-height: 50px;
   display: flex;
   align-items: center;
@@ -64,21 +68,11 @@ export const MenuIcon = styled(BiMenu)`
 
   color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
 `
-export const CloseIcon = styled(RiCloseLine)`
-  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
-  height: 25px;
-  width: 25px;
-`
 
-export const CloseButton = styled(NavButton)`
-  margin-right: 30px;
-  //   margin-top: 20px;
-  align-self: flex-end;
-`
 export const LogoImg = styled.img`
   width: 100px;
   //   margin-top: 10px;
-  //   margin-left: 30px;
+  margin-left: 20px;
 `
 
 export const PopupNavWidth = styled.div`

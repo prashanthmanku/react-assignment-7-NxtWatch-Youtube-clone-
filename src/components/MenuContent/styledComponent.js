@@ -33,11 +33,17 @@ export const MenuItemContainer = styled.div`
   display: flex;
 
   width: 100%;
+  //   margin-bottom: 10px;
+  border-radius: 10px;
 
   background-color: ${props => {
     if (props['data-selected'] === true) {
       return props['data-dark'] ? ' #383838' : '#f1f5f9'
     }
+    if (props['data-focus'] === true) {
+      return props['data-dark'] ? '#616e7c' : '  #ebebeb' // d7dfe9
+    }
+
     return null
   }};
 

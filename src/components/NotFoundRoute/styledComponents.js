@@ -31,6 +31,12 @@ export const Img = styled.img`
   margin-bottom: 30px;
 `
 
+export const SidebarCard = styled.div`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
 export const Heading = styled.h1`
   font-size: 21px;
   font-weight: 600;

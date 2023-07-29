@@ -8,7 +8,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 64px;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#f9f9f9')};
   background-color: ${props =>
     props['data-dark'] ? '#212121' : '#ffffff'}; //  ffffff f9f9f9
@@ -54,6 +54,21 @@ export const NavButton = styled.button`
 
 export const ThemeButton = styled(NavButton)`
   background-color: transparent;
+  margin-right: 20px;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${props => {
+    if (props['data-themBtnActive'] === true) {
+      return props['data-dark'] ? ' #383838' : '#f1f5f9'
+    }
+    return null
+  }};
 `
 
 export const DarkIcon = styled(FaMoon)`
@@ -85,11 +100,26 @@ export const ProfileButton = styled(NavButton)`
   @media screen and (max-width: 767px) {
     display: none;
   }
+  margin-right: 20px;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${props => {
+    if (props['data-profileBtnActive'] === true) {
+      return props['data-dark'] ? ' #383838' : '#f1f5f9'
+    }
+    return null
+  }};
 `
 
 export const ProfileImg = styled.img`
-  height: 23px;
-  width: 23px;
+  height: 26px;
+  width: 26px;
 `
 export const StyledPopUp = styled(Popup)`
   &-popup-content {
@@ -155,7 +185,7 @@ export const DeskTopLogoutButton = styled.button`
   color: #3b82f6;
   border: 1px solid ${props => (props.dark ? '#ebebeb' : '#3b82f6')};
   color: ${props => (props['data-dark'] ? '#ebebeb' : '#3b82f6')};
-  align-self: flex-start;
+  //   align-self: flex-start;
   margin: 0px 13px;
   outline: none;
   cursor: pointer;

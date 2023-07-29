@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {Component, useEffect} from 'react'
 import {Switch, Route, Redirect, useHistory} from 'react-router-dom'
 
 import LoginRoute from './components/LoginRoute'
@@ -14,7 +14,23 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 import NxtWatchContext from './context/NxtWatchContext'
 
-import './App.css'
+import GlobalStyle from './AppStyled'
+
+const ScrollToTop = () => {
+  const history = useHistory()
+
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      window.scrollTo(0, 0)
+    })
+
+    return () => {
+      unlisten()
+    }
+  }, [history])
+
+  return null
+}
 
 class App extends Component {
   state = {
@@ -99,10 +115,6 @@ class App extends Component {
       isPopupOpened,
     } = this.state
 
-    const ScrollToTop = () => {
-      const history = useHistory()
-    }
-
     return (
       <NxtWatchContext.Provider
         value={{
@@ -120,45 +132,38 @@ class App extends Component {
           changePopupMode: this.changePopupMode,
         }}
       >
-        <div
-          className={isPopupOpened ? 'pointerEvents' : ''}
-          // style={{pointerEvents: isPopupOpened ? 'none' : 'auto'}}
-        >
-          <Switch>
-            <Route exact path="/login" component={LoginRoute} key={routeKey} />
-            <ProtectedRoute
-              exact
-              path="/"
-              component={HomeRoute}
-              key={routeKey}
-            />
-            <ProtectedRoute
-              exact
-              path="/trending"
-              component={TrendingRoute}
-              key={routeKey}
-            />
-            <ProtectedRoute
-              exact
-              path="/gaming"
-              component={GamingRoute}
-              key={routeKey}
-            />
-            <ProtectedRoute
-              exact
-              path="/saved-videos"
-              component={SavedVideosRoute}
-              key={routeKey}
-            />
-            <ProtectedRoute
-              exact
-              path="/videos/:id"
-              component={VideoDetailesRoute}
-            />
-            <ProtectedRoute exact path="/not-found" component={NotFoundRoute} />
-            <Redirect to="/not-found" />
-          </Switch>
-        </div>
+        <GlobalStyle data-isPopupOpened={isPopupOpened} />
+
+        <ScrollToTop />
+        <Switch>
+          <Route exact path="/login" component={LoginRoute} key={routeKey} />
+          <ProtectedRoute exact path="/" component={HomeRoute} key={routeKey} />
+          <ProtectedRoute
+            exact
+            path="/trending"
+            component={TrendingRoute}
+            key={routeKey}
+          />
+          <ProtectedRoute
+            exact
+            path="/gaming"
+            component={GamingRoute}
+            key={routeKey}
+          />
+          <ProtectedRoute
+            exact
+            path="/saved-videos"
+            component={SavedVideosRoute}
+            key={routeKey}
+          />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoDetailesRoute}
+          />
+          <ProtectedRoute exact path="/not-found" component={NotFoundRoute} />
+          <Redirect to="/not-found" />
+        </Switch>
       </NxtWatchContext.Provider>
     )
   }

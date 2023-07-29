@@ -1,3 +1,7 @@
+import {createGlobalStyle} from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+
 * {
   box-sizing: border-box;
   font-family: 'Roboto';
@@ -10,9 +14,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  pointer-events:${props => (props['data-isPopupOpened'] ? 'none' : 'auto')};
+
+   
 }
 
-.pointerEvents {
-  pointer-events: none;
-  touch-action: none;
-}
+
+
+`
+
+export default GlobalStyle

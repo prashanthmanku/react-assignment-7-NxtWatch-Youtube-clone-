@@ -35,7 +35,7 @@ const HomeVideoItem = props => {
   return (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme, isPopupOpened} = value
+        const {isDarkTheme} = value
         let time = formatDistanceToNow(new Date(publishedAt))
         time = time.split(' ')
         time = time.slice(1)
@@ -45,7 +45,7 @@ const HomeVideoItem = props => {
           <ItemContainer value={path === '/'}>
             <VideoLinkContainer
               as={Link}
-              to={isPopupOpened ? null : `/videos/${id}`}
+              to={`/videos/${id}`}
               value={path === '/'}
             >
               <ThumbnailImg

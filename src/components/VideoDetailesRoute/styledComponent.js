@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const VideoDetailsBgContainer = styled.div`
-  margin-top: 10vh;
+  margin-top: 64px;
   display: flex;
 `
 export const SidebarCard = styled.div`
@@ -113,6 +113,7 @@ export const IconButton = styled.button`
   outline: none;
   border: none;
   margin-right: 25px;
+  cursor: pointer;
 
   margin-bottom: 15px;
   @media screen and (min-width: 768px) {

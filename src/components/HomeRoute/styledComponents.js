@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const HomeBgContainer = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 64px;
 `
 
 export const SidebarCard = styled.div`

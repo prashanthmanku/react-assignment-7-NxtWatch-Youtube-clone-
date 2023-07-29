@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const GameRouteBgCard = styled.div`
-  margin-top: 10vh;
+  margin-top: 64px;
 `
 
 export const SidebarCard = styled.div`

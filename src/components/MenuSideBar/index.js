@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {AiOutlineGithub, AiOutlineInstagram} from 'react-icons/ai'
 import MenuContent from '../MenuContent'
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -12,51 +13,94 @@ import {
   Description,
 } from './styledComponent'
 
-const MenuSideBar = () => (
-  <NxtWatchContext.Consumer>
-    {value => {
-      const {isDarkTheme} = value
+const MenuSideBar = () => {
+  const [linkdinActive, setlinkdinActive] = useState(false)
+  const [instaIsActive, setinstaActive] = useState(false)
+  const [gitIsActive, setgitActive] = useState(false)
 
-      return (
-        <SideBarContainer isDarkTheme={isDarkTheme}>
-          <MenuContent />
-          <ContactUsContainer isDarkTheme={isDarkTheme}>
-            <Heading>CONTACT US</Heading>
-            <IconsContainer>
-              <SocialMediaButton
-                href="https://www.linkedin.com/in/prashanth-manku97/"
-                targ
-              >
-                <Icon
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                  alt="linked in logo"
-                />
-              </SocialMediaButton>
+  const LinkdinNotActive = () => {
+    setlinkdinActive(false)
+  }
 
-              <SocialMediaButton
-                href="https://github.com/prashanthmanku"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon as={AiOutlineGithub} isDarkTheme={isDarkTheme} />
-              </SocialMediaButton>
+  const LinkdinActive = () => {
+    setlinkdinActive(true)
+  }
 
-              <SocialMediaButton
-                href="https://www.instagram.com/prashanth0823/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon as={AiOutlineInstagram} className="insta" />
-              </SocialMediaButton>
-            </IconsContainer>
-            <Description>
-              Enjoy! Now to see your channels and recommendations!
-            </Description>
-          </ContactUsContainer>
-        </SideBarContainer>
-      )
-    }}
-  </NxtWatchContext.Consumer>
-)
+  const instaNotActive = () => {
+    setinstaActive(false)
+  }
+
+  const instaActive = () => {
+    setinstaActive(true)
+  }
+
+  const gitNotActive = () => {
+    setgitActive(false)
+  }
+
+  const gitActive = () => {
+    setgitActive(true)
+  }
+
+  return (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDarkTheme} = value
+
+        return (
+          <SideBarContainer isDarkTheme={isDarkTheme}>
+            <MenuContent />
+            <ContactUsContainer isDarkTheme={isDarkTheme}>
+              <Heading>CONTACT US</Heading>
+              <IconsContainer>
+                <SocialMediaButton
+                  href="https://www.linkedin.com/in/prashanth-manku97/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-socialBtnActive={linkdinActive}
+                  isDarkTheme={isDarkTheme}
+                  onMouseEnter={LinkdinActive}
+                  onMouseLeave={LinkdinNotActive}
+                >
+                  <Icon
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                    alt="linked in logo"
+                  />
+                </SocialMediaButton>
+
+                <SocialMediaButton
+                  href="https://github.com/prashanthmanku"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-socialBtnActive={instaIsActive}
+                  isDarkTheme={isDarkTheme}
+                  onMouseEnter={instaActive}
+                  onMouseLeave={instaNotActive}
+                >
+                  <Icon as={AiOutlineGithub} isDarkTheme={isDarkTheme} />
+                </SocialMediaButton>
+
+                <SocialMediaButton
+                  href="https://www.instagram.com/prashanth0823/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-socialBtnActive={gitIsActive}
+                  isDarkTheme={isDarkTheme}
+                  onMouseEnter={gitActive}
+                  onMouseLeave={gitNotActive}
+                >
+                  <Icon as={AiOutlineInstagram} className="insta" />
+                </SocialMediaButton>
+              </IconsContainer>
+              <Description>
+                Enjoy! Now to see your channels and recommendations!
+              </Description>
+            </ContactUsContainer>
+          </SideBarContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
+}
 
 export default MenuSideBar
