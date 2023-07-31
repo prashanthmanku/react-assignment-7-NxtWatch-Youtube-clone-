@@ -4,7 +4,7 @@ import {Link, withRouter} from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
-import {MdPlaylistAdd} from 'react-icons/md'
+import {MdPlaylistAddCheck} from 'react-icons/md'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
 
@@ -162,7 +162,7 @@ const MenuContent = props => {
                 >
                   <MenuDetailsContainer>
                     <MenuIcon
-                      as={MdPlaylistAdd}
+                      as={MdPlaylistAddCheck}
                       data-selected={path === '/saved-videos'}
                       data-dark={isDarkTheme}
                       className="saved-videos"
