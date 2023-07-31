@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const NotFoundRouteBgCard = styled.div``
 
 export const NotFoundCard = styled.div`
-  margin-top: 10vh;
+  margin-top: 64px;
   @media screen and (min-width: 768px) {
     margin-left: 250px;
   }
 
   min-height: 90vh;
-  background-color: ${props => (props.isDarkTheme ? '#181818' : ' #f1f5f9')};
+  background-color: ${props => (props['data-dark'] ? '#181818' : ' #f1f5f9')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ export const SidebarCard = styled.div`
 export const Heading = styled.h1`
   font-size: 21px;
   font-weight: 600;
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
 `
 
 export const Description = styled.p`

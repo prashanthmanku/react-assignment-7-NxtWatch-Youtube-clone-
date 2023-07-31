@@ -66,11 +66,11 @@ export const Title = styled.p`
   margin: 0px;
   //   color: #1e293b;
   //   color: #ebebeb;
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
   font-size: 15px;
   line-height: 21px;
   font-weight: 400;
-  font-weight: ${props => (props.isDarkTheme ? 400 : 500)};
+  font-weight: ${props => (props['data-dark'] ? 400 : 500)};
 `
 
 export const MoreContainer = styled.div`

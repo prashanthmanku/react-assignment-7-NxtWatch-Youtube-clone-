@@ -140,7 +140,7 @@ class Home extends Component {
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
         alt="no videos"
       />
-      <NoVideosHeading isDarkTheme={isDarkTheme}>
+      <NoVideosHeading data-dark={isDarkTheme}>
         No Search results found
       </NoVideosHeading>
       <NoVideosDescription>
@@ -217,7 +217,7 @@ class Home extends Component {
                   )}
 
                   <HomeContentContainer
-                    isDarkTheme={isDarkTheme}
+                    data-dark={isDarkTheme}
                     data-testid="home"
                   >
                     <SearchBarWidthContainer>
@@ -226,13 +226,13 @@ class Home extends Component {
                           type="search"
                           placeholder="Search"
                           value={userEnterdText}
-                          isDarkTheme={isDarkTheme}
+                          data-dark={isDarkTheme}
                           onChange={this.onChangeUserEnterdText}
                           onKeyDown={this.OnClickEnter}
                         />
                         <SearchButton
                           type="button"
-                          isDarkTheme={isDarkTheme}
+                          data-dark={isDarkTheme}
                           onClick={this.onClickSeachBtn}
                           data-testid="searchButton"
                         >

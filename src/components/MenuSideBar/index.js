@@ -48,17 +48,17 @@ const MenuSideBar = () => {
         const {isDarkTheme} = value
 
         return (
-          <SideBarContainer isDarkTheme={isDarkTheme}>
+          <SideBarContainer data-dark={isDarkTheme}>
             <MenuContent />
-            <ContactUsContainer isDarkTheme={isDarkTheme}>
+            <ContactUsContainer data-dark={isDarkTheme}>
               <Heading>CONTACT US</Heading>
               <IconsContainer>
                 <SocialMediaButton
                   href="https://www.linkedin.com/in/prashanth-manku97/"
                   target="_blank"
                   rel="noreferrer"
-                  data-socialBtnActive={linkdinActive}
-                  isDarkTheme={isDarkTheme}
+                  data-socialbtnctive={linkdinActive}
+                  data-dark={isDarkTheme}
                   onMouseEnter={LinkdinActive}
                   onMouseLeave={LinkdinNotActive}
                 >
@@ -72,20 +72,20 @@ const MenuSideBar = () => {
                   href="https://github.com/prashanthmanku"
                   target="_blank"
                   rel="noreferrer"
-                  data-socialBtnActive={instaIsActive}
-                  isDarkTheme={isDarkTheme}
+                  data-socialbtnctive={instaIsActive}
+                  data-dark={isDarkTheme}
                   onMouseEnter={instaActive}
                   onMouseLeave={instaNotActive}
                 >
-                  <Icon as={AiOutlineGithub} isDarkTheme={isDarkTheme} />
+                  <Icon as={AiOutlineGithub} data-dark={isDarkTheme} />
                 </SocialMediaButton>
 
                 <SocialMediaButton
                   href="https://www.instagram.com/prashanth0823/"
                   target="_blank"
                   rel="noreferrer"
-                  data-socialBtnActive={gitIsActive}
-                  isDarkTheme={isDarkTheme}
+                  data-socialbtnctive={gitIsActive}
+                  data-dark={isDarkTheme}
                   onMouseEnter={gitActive}
                   onMouseLeave={gitNotActive}
                 >

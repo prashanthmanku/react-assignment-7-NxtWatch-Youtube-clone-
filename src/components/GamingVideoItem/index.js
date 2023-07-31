@@ -30,7 +30,7 @@ const HomeVideoItem = props => {
             <VideoLinkContainer as={Link} to={`/videos/${id}`}>
               <ThumbnailImg src={thumbnailUrl} alt="video thumbnail" />
 
-              <Title isDarkTheme={isDarkTheme}>{title}</Title>
+              <Title data-dark={isDarkTheme}>{title}</Title>
 
               <Views>{viewCount} Watching Worldwide</Views>
             </VideoLinkContainer>

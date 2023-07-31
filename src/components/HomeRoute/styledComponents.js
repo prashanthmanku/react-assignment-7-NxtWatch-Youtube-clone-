@@ -21,7 +21,7 @@ export const HomeMainContainer = styled.div`
 
 export const HomeContentContainer = styled.div`
   background-color: ${props =>
-    props.isDarkTheme ? '#181818' : ' #f1f5f9'}; // f4f4f4 f9f9f9
+    props['data-dark'] ? '#181818' : ' #f1f5f9'}; // f4f4f4 f9f9f9
   min-height: 90vh;
   padding: 20px 0px;
 `
@@ -109,7 +109,7 @@ export const Input = styled.input`
   border-right: 1px solid #909090;
   padding: 8px 16px;
 
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#0f0f0f')};
   font-size: 16px;
   &:focus {
     outline-color: blue;
@@ -120,7 +120,7 @@ export const SearchButton = styled.button`
   width: 20%;
   border: none;
 
-  background-color: ${props => (props.isDarkTheme ? '#383838' : '#f1f1f1')};
+  background-color: ${props => (props.isdarktheme ? '#383838' : '#f1f1f1')};
 
   border-radius: 0px 4px 4px 0px;
 `
@@ -167,7 +167,7 @@ export const NoVideosHeading = styled.h1`
   font-size: 18px;
   font-weight: 500;
 
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
 `
 
 export const NoVideosDescription = styled.p`

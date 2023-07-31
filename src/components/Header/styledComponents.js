@@ -64,7 +64,7 @@ export const ThemeButton = styled(NavButton)`
   align-items: center;
 
   background-color: ${props => {
-    if (props['data-themBtnActive'] === true) {
+    if (props['data-thembtnactive'] === true) {
       return props['data-dark'] ? ' #383838' : '#f1f5f9'
     }
     return null
@@ -110,7 +110,7 @@ export const ProfileButton = styled(NavButton)`
   align-items: center;
 
   background-color: ${props => {
-    if (props['data-profileBtnActive'] === true) {
+    if (props['data-profilebtnactive'] === true) {
       return props['data-dark'] ? ' #383838' : '#f1f5f9'
     }
     return null

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BgContainer = styled.div`
-  background-color: ${props => (props.isDarkTheme ? '#212121' : '#f9f9f9')};
+  background-color: ${props => (props['data-dark'] ? '#212121' : '#f9f9f9')};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ export const BgContainer = styled.div`
 `
 
 export const WidthContainer = styled.div`
-  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : ' #ffffff')};
+  background-color: ${props => (props['data-dark'] ? '#0f0f0f' : ' #ffffff')};
 
   width: 90%;
   max-width: 400px;
@@ -22,7 +22,7 @@ export const WidthContainer = styled.div`
 
   //   box-shadow: 0px 4px 16px 0px #ebebeb;
   box-shadow: ${props =>
-    props.isDarkTheme ? null : '0px 4px 16px 0px #ebebeb'};
+    props['data-dark'] ? null : '0px 4px 16px 0px #ebebeb'};
 
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ export const InputContainer = styled.div`
 `
 
 export const Label = styled.label`
-  color: ${props => (props.isDarkTheme ? '#e2e8f0' : '#64748b')};
+  color: ${props => (props['data-dark'] ? '#e2e8f0' : '#64748b')};
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 5px;
@@ -56,9 +56,9 @@ export const Input = styled.input`
   height: 40px;
   padding: 8px 16px;
   border-radius: 4px;
-  border: 1px solid ${props => (props.isDarkTheme ? '#475569' : '#cbd5e1')};
+  border: 1px solid ${props => (props['data-dark'] ? '#475569' : '#cbd5e1')};
   outline: none;
-  color: ${props => (props.isDarkTheme ? '#cbd5e1' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#cbd5e1' : '#0f0f0f')};
   font-weight: 500;
   font-size: 15px;
   background-color: transparent;
@@ -80,7 +80,7 @@ export const CheckBoxLabel = styled.label`
   margin: 0px 0px 0px 4px;
   font-weight: 500;
   font-size: 14px;
-  color: ${props => (props.isDarkTheme ? '#e2e8f0' : '#181818')};
+  color: ${props => (props['data-dark'] ? '#e2e8f0' : '#181818')};
   cursor: pointer;
 `
 

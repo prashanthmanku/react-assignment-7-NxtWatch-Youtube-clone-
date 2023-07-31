@@ -60,7 +60,7 @@ const HomeVideoItem = props => {
                   value={path === '/'}
                 />
                 <ContentContainer>
-                  <Title isDarkTheme={isDarkTheme}>{title}</Title>
+                  <Title data-dark={isDarkTheme}>{title}</Title>
                   <MoreContainer>
                     <ChannelName>{channelName}</ChannelName>
                     <ViewsContainer>

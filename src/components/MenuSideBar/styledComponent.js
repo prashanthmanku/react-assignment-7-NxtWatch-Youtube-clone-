@@ -15,7 +15,7 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
+  background-color: ${props => (props['data-dark'] ? '#212121' : '#ffffff')};
   @media screen and (max-width: 767px) {
     margin-top: 0vh;
     // height: 80vh;
@@ -27,7 +27,7 @@ export const SideBarContainer = styled.div`
 export const ContactUsContainer = styled.div`
   padding-left: 20px;
   padding-bottom: 20px;
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : '#1e293b')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : '#1e293b')};
 `
 
 export const IconsContainer = styled.div`
@@ -57,8 +57,8 @@ export const SocialMediaButton = styled.a`
   justify-content: center;
   align-items: center;
   background-color: ${props => {
-    if (props['data-socialBtnActive'] === true) {
-      return props.isDarkTheme ? ' #383838' : '#f1f5f9'
+    if (props['data-socialbtnctive'] === true) {
+      return props['data-dark'] ? ' #383838' : '#f1f5f9'
     }
     return null
   }};
@@ -68,7 +68,7 @@ export const Icon = styled.img`
   width: 30px;
   height: 30px;
 
-  color: ${props => (props.isDarkTheme ? '#ebebeb' : 'black')};
+  color: ${props => (props['data-dark'] ? '#ebebeb' : 'black')};
   &.insta {
     color: #e4405f;
   }

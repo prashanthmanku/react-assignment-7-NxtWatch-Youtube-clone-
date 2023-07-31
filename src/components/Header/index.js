@@ -110,7 +110,7 @@ const Header = props => {
                   type="button"
                   onClick={onChangeTheme}
                   data-testid="theme"
-                  data-themBtnActive={themeButtonActive}
+                  data-thembtnactive={themeButtonActive}
                   data-dark={isDarkTheme}
                   onMouseEnter={mouseOnThemActive}
                   onMouseLeave={mouseOnThemNotActive}
@@ -122,7 +122,7 @@ const Header = props => {
 
                 <ProfileButton
                   type="button"
-                  data-profileBtnActive={profileButtonActive}
+                  data-profilebtnactive={profileButtonActive}
                   data-dark={isDarkTheme}
                   onMouseEnter={mouseOnProfileActive}
                   onMouseLeave={mouseOnProfileNotActive}

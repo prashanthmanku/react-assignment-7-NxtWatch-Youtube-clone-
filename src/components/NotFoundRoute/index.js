@@ -29,11 +29,11 @@ const NotFoundRoute = () => (
             <SidebarCard>
               <MenuSideBar />
             </SidebarCard>
-            <NotFoundCard isDarkTheme={isDarkTheme}>
+            <NotFoundCard data-dark={isDarkTheme}>
               <NotFoundWidthCard>
                 <Img src={isDarkTheme ? darkUrl : lightUrl} alt="not found" />
-                <Heading isDarkTheme={isDarkTheme}>Page Not Found</Heading>
-                <Description isDarkTheme={isDarkTheme}>
+                <Heading data-dark={isDarkTheme}>Page Not Found</Heading>
+                <Description data-dark={isDarkTheme}>
                   We are sorry, the page you requested could not be found.
                 </Description>
               </NotFoundWidthCard>

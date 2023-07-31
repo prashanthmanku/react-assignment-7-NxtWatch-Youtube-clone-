@@ -32,7 +32,9 @@ const FailureView = props => {
               src={isDarkTheme ? darkImgUrl : lightImgUrl}
               alt="failure view"
             />
-            <FailureHeading isDarkTheme={isDarkTheme}>
+            <FailureHeading
+            //  isDarkTheme={isDarkTheme}
+            >
               OOps! Something Went Wrong
             </FailureHeading>
             <FailureDescription>

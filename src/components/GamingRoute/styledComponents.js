@@ -12,8 +12,8 @@ export const SidebarCard = styled.div`
 
 export const GameVideosBgCard = styled.div`
   min-height: 90vh;
-  background-color: ${props => (props.isDarkTheme ? '#181818' : '#f9f9f9')};
-  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props['data-dark'] ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props['data-dark'] ? '#0f0f0f' : '#f9f9f9')};
   @media screen and (min-width: 768px) {
     margin-left: 250px;
   }
@@ -24,14 +24,14 @@ export const GameVideosCard = styled.div`
 `
 
 export const GameVideosHeadingCard = styled.div`
-  background-color: ${props => (props.isDarkTheme ? ' #383838' : '#ebebeb')};
+  background-color: ${props => (props['data-dark'] ? ' #383838' : '#ebebeb')};
   display: flex;
   align-items: center;
   padding: 20px;
   margin-bottom: 20px;
 `
 export const IconBackGroung = styled.div`
-  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#f1f5f9')};
+  background-color: ${props => (props['data-dark'] ? '#0f0f0f' : '#f1f5f9')};
   width: 60px;
   height: 60px;
   border-radius: 30px;
@@ -52,7 +52,7 @@ export const GameHeading = styled.h1`
   color: #0f0f0f;
   font-size: 19px;
   font-weight: 600;
-  color: ${props => (props.isDarkTheme ? '#ffffff' : '#0f0f0f')};
+  color: ${props => (props['data-dark'] ? '#ffffff' : '#0f0f0f')};
 `
 
 export const VideosList = styled.ul`

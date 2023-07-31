@@ -96,35 +96,35 @@ class LoginRoute extends Component {
 
           return (
             <>
-              <BgContainer isDarkTheme={isDarkTheme}>
-                <WidthContainer isDarkTheme={isDarkTheme}>
+              <BgContainer data-dark={isDarkTheme}>
+                <WidthContainer data-dark={isDarkTheme}>
                   <Img
                     src={isDarkTheme ? darkLogoUrl : lightLogoUrl}
                     alt="website logo"
                   />
                   <Form onSubmit={this.onSubmitForm}>
                     <InputContainer>
-                      <Label htmlFor="userName" isDarkTheme={isDarkTheme}>
+                      <Label htmlFor="userName" data-dark={isDarkTheme}>
                         USERNAME
                       </Label>
                       <Input
                         type="text"
                         id="userName"
                         placeholder="Username"
-                        isDarkTheme={isDarkTheme}
+                        data-dark={isDarkTheme}
                         value={username}
                         onChange={this.onChangeUserName}
                       />
                     </InputContainer>
                     <InputContainer>
-                      <Label htmlFor="passWord" isDarkTheme={isDarkTheme}>
+                      <Label htmlFor="passWord" data-dark={isDarkTheme}>
                         PASSWORD
                       </Label>
                       <Input
                         type={isCheckboxActive ? 'text' : 'password'}
                         id="passWord"
                         placeholder="Pssword"
-                        isDarkTheme={isDarkTheme}
+                        data-dark={isDarkTheme}
                         value={password}
                         onChange={this.onChangePassword}
                       />
@@ -135,10 +135,7 @@ class LoginRoute extends Component {
                         id="checkbox"
                         onClick={this.onClickCheckbox}
                       />
-                      <CheckBoxLabel
-                        htmlFor="checkbox"
-                        isDarkTheme={isDarkTheme}
-                      >
+                      <CheckBoxLabel htmlFor="checkbox" data-dark={isDarkTheme}>
                         Show Password
                       </CheckBoxLabel>
                     </CheckBoxContainer>

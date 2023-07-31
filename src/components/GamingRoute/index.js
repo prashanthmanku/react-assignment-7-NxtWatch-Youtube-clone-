@@ -71,11 +71,11 @@ class GamingRoute extends Component {
     const {videosList} = this.state
     return (
       <GameVideosCard>
-        <GameVideosHeadingCard isDarkTheme={isDarkTheme}>
-          <IconBackGroung isDarkTheme={isDarkTheme}>
+        <GameVideosHeadingCard data-dark={isDarkTheme}>
+          <IconBackGroung data-dark={isDarkTheme}>
             <Icon as={SiYoutubegaming} />
           </IconBackGroung>
-          <GameHeading isDarkTheme={isDarkTheme}>Gaming</GameHeading>
+          <GameHeading data-dark={isDarkTheme}>Gaming</GameHeading>
         </GameVideosHeadingCard>
         <VideosList>
           {videosList.map(each => (
@@ -124,10 +124,7 @@ class GamingRoute extends Component {
                 <SidebarCard>
                   <MenuSideBar />
                 </SidebarCard>
-                <GameVideosBgCard
-                  isDarkTheme={isDarkTheme}
-                  data-testid="gaming"
-                >
+                <GameVideosBgCard data-dark={isDarkTheme} data-testid="gaming">
                   {this.renderTrendingRouteView(isDarkTheme)}
                 </GameVideosBgCard>
               </GameRouteBgCard>
