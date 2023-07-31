@@ -1,4 +1,4 @@
-## LIVE LINK :- <a href='https://prashnxtwatch.ccbp.tech/'>https://prashnxtwatch.ccbp.tech/ (YOUTUBE CLONE)</a>
+## LIVE LINK :- <a href='https://prashnxtwatch.ccbp.tech/'>NxtWatch (YOUTUBE CLONE)</a>
 
 In this assignment let's build an **Nxt Watch** by applying the concepts we have learned till now.
 

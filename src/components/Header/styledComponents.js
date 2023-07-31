@@ -54,7 +54,7 @@ export const NavButton = styled.button`
 
 export const ThemeButton = styled(NavButton)`
   background-color: transparent;
-  margin-right: 20px;
+  margin-right: 15px;
 
   height: 40px;
   width: 40px;
