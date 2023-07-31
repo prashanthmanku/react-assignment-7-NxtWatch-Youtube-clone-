@@ -9,7 +9,7 @@ export const ItemContainer = styled.li`
     // width: 250px;
     // margin: 20px 15px 20px 0px;
     width: ${props => (props.value ? '250px' : '100%')};
-    max-width: 900px;
+    max-width: ${props => (props.value ? '400px' : '800px')};
     margin: ${props =>
       props.value ? '20px 15px 20px 0px' : '10px 0px 0px 0px'};
   }
