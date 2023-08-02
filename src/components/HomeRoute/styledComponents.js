@@ -45,10 +45,10 @@ export const BannerLogo = styled.img`
 `
 
 export const CloseButton = styled.button`
-  padding: 0px;
   align-self: flex-end;
-  padding: 0px;
   background-color: transparent;
+  background-color: ${props => (props.value ? '#f1f5f9' : 'transparent')};
+  padding: ${props => (props.value ? '5px' : '0px')};
   border: none;
   outline: none;
   cursor: pointer;
@@ -58,6 +58,7 @@ export const CloseButton = styled.button`
 export const CloseIcon = styled.img`
   width: 20px;
   height: 20px;
+
   color: #475569;
 `
 

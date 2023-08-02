@@ -60,6 +60,7 @@ class Home extends Component {
     userEnterdText: '',
     videosList: [],
     apiStatus: apiStatusConstants.initial,
+    bannerCloseIconIsFocused: false,
   }
 
   componentDidMount() {
@@ -123,6 +124,14 @@ class Home extends Component {
     this.setState({searchInput: userEnterdText}, this.getVideosData)
   }
 
+  bannerCLoseIconFocused = () => {
+    this.setState({bannerCloseIconIsFocused: true})
+  }
+
+  bannerCLoseIconNotFocused = () => {
+    this.setState({bannerCloseIconIsFocused: false})
+  }
+
   renderVideosList = () => {
     const {videosList} = this.state
     return (
@@ -179,7 +188,11 @@ class Home extends Component {
   }
 
   render() {
-    const {isBannerVisible, userEnterdText} = this.state
+    const {
+      isBannerVisible,
+      userEnterdText,
+      bannerCloseIconIsFocused,
+    } = this.state
 
     return (
       <NxtWatchContext.Consumer>
@@ -200,6 +213,9 @@ class Home extends Component {
                         type="button"
                         onClick={this.onCloseBanner}
                         data-testid="close"
+                        onMouseEnter={this.bannerCLoseIconFocused}
+                        onMouseLeave={this.bannerCLoseIconNotFocused}
+                        value={bannerCloseIconIsFocused}
                       >
                         <CloseIcon as={IoMdClose} />
                       </CloseButton>

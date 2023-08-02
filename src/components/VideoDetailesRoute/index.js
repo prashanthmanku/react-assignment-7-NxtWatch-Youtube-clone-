@@ -60,6 +60,7 @@ class VideoDetailesRoute extends Component {
     const {id} = match.params
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/videos/${id}`
+    console.log(url)
     const options = {
       method: 'GET',
       headers: {
